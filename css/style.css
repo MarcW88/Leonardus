@@ -35,7 +35,7 @@
 -----------------------------------------------------------------------------------*/
 /* Google Fonts Here */
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand:700');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400');
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700');
 
 /*----------------------------------------*/
@@ -67,8 +67,8 @@ li {
 }
 html, body {
 	height: 100%;
-  font-family: 'Quicksand', 'Roboto', sans-serif;
-  font-size: 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
   line-height: 30px;
   color: #4D5168;
 }
@@ -92,26 +92,31 @@ img {max-width:100%;
 	clear:both;
 }
 p {
-	font-family:'Roboto', sans-serif;
+	font-family:'Quicksand', sans-serif;
 	margin:0 0 15px;
   color: #4D5168;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h4, h5, h6 {
 	margin: 0 0 10px;
-	color: #4D5168;
+	color: #0fb6ac;
 	font-weight: 700;
 }
 h1{
-	font-size: 55px;
+	font-size: 50px;
 	line-height: 66px;
+
 }
 h2{
 	font-size: 35px;
 	line-height: 40px;
 }
 h3{
+	margin: 0 0 10px;
 	font-size: 25px;
 	line-height: 40px;
+	font-weight: 700;
+	color: #c1903e;
+
 }
 h4{
 	font-size: 20px;
@@ -154,11 +159,11 @@ a:focus {
 .btn-style a {
 	color: #fff;
 	padding: 16px 40px;
-	background-color: #4D5168;
+	background-color: #c1903e;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	border: 1px solid #4D5168;
+	border: 1px solid #c1903e;
 }
 .btn-style a:hover {
 	color: #4D5168;
@@ -168,11 +173,11 @@ a:focus {
 button {
 	color: #fff;
 	padding: 16px 40px;
-	background-color: #4D5168;
+	background-color: #c1903e;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	border: 1px solid #4D5168;
+	border: 1px solid #c1903e;
 }
 button:hover {
 	color: #4D5168;
@@ -354,11 +359,11 @@ button:hover {
 /*--- hero area ---*/
 .hero-area {
 	background-color: #fff;
-	padding: 240px 0px 180px 0px;
+	padding: 120px 0px 180px 0px;
 	min-height: 800px;
 }
 .hero-title {
-	padding-top: 40px;
+	padding-top: 150px;
 }
 .hero-img {
 	padding-bottom: 170px;
@@ -373,15 +378,27 @@ button:hover {
 /*  4.  Service Area
 /*----------------------------------------*/
 #services {
-	background-color: #fafafa;
+	background-color: #ffffff;
 	padding: 90px 0px 0px 0px;
 }
 .title {
-	margin-bottom: 80px;
+    position: relative;
+    margin-bottom: 80px;
 }
+
+.title::before {
+    content: "";
+    position: absolute;
+    top: -30px; /* Adjust this value to set the desired space between the border and the title */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+    border-top: 5px solid #c1903e
+	;
+}
+
 .service-illustration img {
 	position: absolute;
-	top:70px;
 	right: 100px;
 }
 .offer {
@@ -487,9 +504,10 @@ button:hover {
 /*----------------------------------------*/
 #about {
 	padding: 90px 0px 0px 0px;
+	background-color: #ffffff;
 }
 .about-info {
-	padding: 50px 0px;
+	padding: 0px 0px;
 }
 .about-info p {
 	padding: 15px 0px 30px 0px;
@@ -509,11 +527,11 @@ button:hover {
 }
 /*--- quotes area ---*/
 .quotes {
-	background-color: #fafafa;
+	background-color: #ffffff;
 	padding: 65px 0px;
 }
 .quote-box {
-	background-color: #fff;
+	background-color: #fafafa;
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -537,7 +555,7 @@ button:hover {
 }
 .contact-info {
 	float: left;
-	padding: 0px 35px;
+	padding: 0px 0px;
 }
 .contact-info p {
 	margin: 0px;
@@ -605,7 +623,7 @@ button:hover {
 	background-color: #fafafa;
 }
 .price-table {
-	background-color: #fff;
+	background-color: #ffffff;
 	-webkit-border-radius: 15px;/* Safari 3-4, iOS 1-3.2, Android 1.6- */
 	-moz-border-radius: 15px;/* Firefox 1-3.6 */
 	border-radius: 15px;/* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
@@ -644,7 +662,7 @@ button:hover {
 	width: 100%;
 	height: 100%;
 	padding: 25px 0px;
-	background-color: #4D5168;
+	background-color: #c1903e;
 	-webkit-border-bottom-left-radius: 15px;
 	-webkit-border-bottom-right-radius: 15px;
 	-moz-border-radius-bottomleft: 15px;
@@ -656,13 +674,27 @@ button:hover {
 	color: #fff;
 }
 .price-table:hover .price-btn {
-	background-color: #87EF54;
+	background-color: #0fb6ac;
 	background: rgb(203,250,20); /* Old browsers */
-	background: -moz-linear-gradient(left, rgba(203,250,20,1) 0%, rgba(9,215,203,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, rgba(203,250,20,1) 0%,rgba(9,215,203,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, rgba(203,250,20,1) 0%,rgba(9,215,203,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(left, rgba(200,164,92,1) 0%, rgba(87,197,189,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(200,164,92,1) 0%, rgba(87,197,189,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(left, rgba(200,164,92,1) 0%, rgba(87,197,189,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbfa14', endColorstr='#09d7cb',GradientType=1 ); /* IE6-9 */
 }
+
+/*----------------------------------------*/
+/*  9a.  FAQ Area
+/*----------------------------------------*/
+
+#accordion .btn-link {
+    font-size: 18px;
+    font-family: "Quicksand", sans-serif;
+	background-color: #fff;
+	width: 100%;
+	color: #4D5168;
+}
+
+
 /*----------------------------------------*/
 /*  10.  Contact Area
 /*----------------------------------------*/
@@ -704,7 +736,7 @@ textarea {
 	height: 40px;
 	padding: 25px 12px 25px 22px;
 	font-size: 13px;
-	font-family:'Roboto','Quicksand', sans-serif;
+	font-family:'Quicksand', sans-serif;
 }
 .form-control:focus {
 	box-shadow: none;
@@ -896,7 +928,7 @@ footer p {
 	right: 50px;
 }
 .work-items {
-	margin-top: 30px;
+	margin-top: 0px;
 }
 /*----------------------------------------*/
 /*  End Of Style
