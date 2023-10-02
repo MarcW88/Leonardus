@@ -472,9 +472,18 @@ button:hover {
 	margin-bottom: 20px;
 }
 .img-box {
-  position: relative;
-  overflow: hidden;
-}
+	position: relative;
+	overflow: hidden;
+	width: 320px; /* Largeur souhaitée */
+	height: 240px; /* Hauteur souhaitée */
+  }
+
+  .img-box img {
+	width: 100%; /* Cela étire ou réduit la largeur de l'image pour correspondre à la largeur du conteneur */
+	height: 100%; /* Cela étire ou réduit la hauteur de l'image pour correspondre à la hauteur du conteneur */
+	object-fit: cover; /* Cela garantit que l'image couvre entièrement le conteneur sans être étirée */
+  }  
+
 .img-box-overlay {
   perspective: 360px;
 }
@@ -916,6 +925,7 @@ footer p {
 .portfolio-illustration img {
 	max-width: 320px;
 	height: auto;
+	
 }
 .portfolio-style {
 	background-color: #fafafa;
