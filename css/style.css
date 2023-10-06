@@ -398,7 +398,7 @@ button:hover {
 }
 
 .service-illustration img {
-	position: absolute;
+	position: inherit;
 	right: 100px;
 }
 .offer {
