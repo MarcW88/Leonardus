@@ -33,6 +33,15 @@
   <![endif]-->
   <!-- Balises Hreflang (Ajoutez ici) -->
   <link rel="alternate" hreflang="fr-BE" href="https://marcwilliame.be">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-473597646"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-473597646');
+</script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -571,7 +580,6 @@
                 if (response.ok) {
                 status.innerHTML = "Merci pour votre soumission !";
                 form.reset();
-                window.location.href = "merci.html";  // Redirection vers la page de remerciement
                 } else {
                   response.json().then(data => {
                     if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
