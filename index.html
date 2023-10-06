@@ -568,10 +568,11 @@
                     'Accept': 'application/json'
                 }
               }).then(response => {
-                if (response.ok) {
-                  status.innerHTML = "Merci pour votre soumission !";
-                  form.reset()
-                } else {
+    if (response.ok) {
+      status.innerHTML = "Merci pour votre soumission !";
+      form.reset();
+      window.location.href = "thankyou.html";  // Redirection vers la page de remerciement
+    } else {
                   response.json().then(data => {
                     if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
                       status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
