@@ -399,7 +399,7 @@ button:hover {
 
 .service-illustration img {
 	position: inherit;
-	right: 100px;
+	right: 0px;
 }
 .offer {
 	margin-bottom: 90px;
