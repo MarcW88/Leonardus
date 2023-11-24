@@ -66,25 +66,71 @@
     }
     </script> 
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Services de caricatures et portraits",
-    "url": "https://www.marcwilliame.be",
-    "author": {
-      "@type": "Organization",
-      "name": "Marc Williame | Caricatures - portraits"
-    },
-    {
-      "@type": "Service",
-      "serviceType": "Services d'Art Numérique",
-      "provider": {
-        "@type": "Person",
-        "name": "Marc Williame"
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Marc Williame | Caricatures - portraits",
+  "url": "https://www.marcwilliame.be",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "3",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [{
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1"
       },
-      "description": "Offre de caricatures et portraits numériques personnalisés et uniques, capturant l'humour et l'essence dans un format numérique."
+      "author": {
+        "@type": "Person",
+        "name": "Charles D."
+      },
+      "reviewBody": "J'adore le portrait que vous avez fait de nous. Chaque trait nous ressemble vraiment. Merci beaucoup !"
     },
     {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Frans G."
+      },
+      "reviewBody": "La caricature de mon pote était hilarante ! Tout le monde a éclaté de rire quand ils l'ont vue."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Pauline D."
+      },
+      "reviewBody": "Merci pour l'illustration que vous avez faite de ma sœur. C'est exactement ce que je voulais."
+    }
+  ],
+  "service": {
+    "@type": "Service",
+    "serviceType": "Services d'Art Numérique",
+    "provider": {
+      "@type": "Person",
+      "name": "Marc Williame"
+    },
+    "description": "Offre de caricatures et portraits numériques personnalisés et uniques, capturant l'humour et l'essence dans un format numérique."
+  },
+  "product": [{
       "@type": "Product",
       "name": "Portrait Numérique",
       "description": "Portrait numérique personnalisé en haute résolution, disponible dans divers formats.",
@@ -103,61 +149,10 @@
         "price": "90",
         "priceCurrency": "EUR"
       }
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "ratingCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Charles D."
-        },
-        "reviewBody": "J'adore le portrait que vous avez fait de nous. Chaque trait nous ressemble vraiment. Merci beaucoup !"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Frans G."
-        },
-        "reviewBody": "La caricature de mon pote était hilarante ! Tout le monde a éclaté de rire quand ils l'ont vue."
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Pauline D."
-        },
-        "reviewBody": "Merci pour l'illustration que vous avez faite de ma sœur. C'est exactement ce que je voulais."
-      }
-    ]
-  }
-  </script>
-
+    }
+  ]
+}
+</script>
   </head>
   <body id="index-page">
     <!-- Preloader -->
