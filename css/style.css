@@ -163,11 +163,12 @@ a:focus {
 .btn-style a {
 	color: #fff;
 	padding: 16px 40px;
-	background-color: #c1903e;
+	background-color: #cs1903e;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	border: 1px solid #c1903e;
+	text-decoration: none;
 }
 .btn-style a:hover {
 	color: #4D5168;
