@@ -131,10 +131,9 @@ h6{
 	line-height: 24px;
 }
 a {
-	color: #4D5168;
-	font-weight: bold;
+	color: #0fb6ac;
+    text-decoration: underline; /* This line makes the text underlined */
   transition: all 0.3s ease 0s;
-	text-decoration:none;
 }
 a:focus {
 	outline:0px solid;
