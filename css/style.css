@@ -503,6 +503,13 @@ button:hover {
   transform: rotateX(0deg);
   opacity: 1;
 }
+
+.img-responsive.custom-height {
+	height: 600px; /* Fixed height */
+	width: auto; /* Width is auto to maintain aspect ratio */
+	object-fit: cover; /* This will ensure that the image covers the area, but it might crop the image */
+  }
+  
 .overlay-text a {
 	color: #fff;
 	font-size: 25px;
