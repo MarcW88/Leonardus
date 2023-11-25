@@ -130,10 +130,14 @@ h6{
 	font-size: 13px;
 	line-height: 24px;
 }
+.nav-btn {
+	color: #4D5168;
+	transition: all 0.3s ease 0s;
+	  text-decoration:none;
+}
 a {
 	color: #0fb6ac;
-    text-decoration: underline; /* This line makes the text underlined */
-  transition: all 0.3s ease 0s;
+	text-decoration: underline;
 }
 a:focus {
 	outline:0px solid;
