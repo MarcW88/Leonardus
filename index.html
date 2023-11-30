@@ -544,39 +544,76 @@
   </div><!-- container end -->
 </div>
 <!-- Pricing end -->
-    <!-- Contact start -->
-    <div class="contact" id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="contac-title title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-            <h2>Parlons peu, mais parlons bien !</h2>
-            <p>Que ce soit en ligne ou autour d’un verre, j'adorerais entendre ce que vous avez en tête pour votre projet. À très vite !</p>
-          </div>
-        </div><!-- row end -->
-        <!-- form start -->
-        <div class="row">
-          <div class="form-box col-xs-12 col-sm-9 col-md-9 col-lg-8 col-sm-offset-2 col-xs-offset-0 wow fadeIn" data-wow-delay="0.1s">
-            <div id="form-messages"></div>
-            <form id="contact-form" class="form" method="post" action="mailer.php">
-              <div class="field form-group">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nom + prénom" tabindex="1" required>
-              </div>
-              <div class="field form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
-              </div>
-              <div class="field form-group">
-                <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Décrivez-moi votre projet" tabindex="4" required></textarea>
-              </div>
-              <div class="field btn-style text-center" data-wow-duration="2s">
-                <button type="submit">Envoyer</button>
-              </div>
-            </form>
-          </div>
-        </div><!-- row end -->
-        <!-- form end -->
-      </div><!-- container end -->
-    </div>
-    <!-- Contact end -->
+<!-- Contact start -->
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contac-title title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+        <h2>Parlons peu, mais parlons bien !</h2>
+        <p>Que ce soit en ligne ou autour d’un café, j'adorerais entendre ce que vous avez en tête pour votre projet. À très vite !</p>
+      </div>
+    </div><!-- row end -->
+  <!-- form start -->
+<div class="row">
+<div class="form-box col-xs-12 col-sm-9 col-md-9 col-lg-8 col-sm-offset-2 col-xs-offset-0 wow fadeIn" data-wow-delay="0.1s">
+    <div id="my-form-status"></div>  <!-- Ajout de la div pour afficher le statut -->
+    <form id="my-form" class="form"  action="https://formspree.io/f/xaygljbq"  method="POST">
+        <!-- Note: Le champ ci-dessous peut rester, il ne causera pas de problème, 
+             mais il n'est pas nécessaire pour Formspree -->            
+        <input type="hidden" name="form-name" value="contact-form">
+        <div class="field form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nom + prénom" tabindex="1" required>
+        </div>
+        <div class="field form-group">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
+        </div>
+        <div class="field form-group">
+            <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Décrivez-moi votre projet" tabindex="4" required></textarea>
+        </div>
+        <div class="field btn-style text-center" data-wow-duration="2s">
+            <button type="submit">Envoyer</button>
+        </div>
+    </form>
+
+    <!-- Place this script at the end of the body tag -->
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Merci pour votre soumission !";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+</div>
+</div><!-- row end -->
+<!-- form end -->
+  </div><!-- container end -->
+</div>
+<!-- Contact end -->
     <!-- Footer start -->
     <footer class="footer" id="footer">
       <div class="container">
