@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="description" content="Marc Williame | Caricatures et portraits">
+        <!-- Website name -->
+        <title>Marc Williame | Portraits personnalisés -  Caricatures digitales</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="img/ico/favicon.png">
+        <!--[if IE]><link rel="shortcut icon" href="img/ico/favicon.ico"><![endif]-->
+        <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-precomposed.png">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Normalize -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <!-- Animate -->
+        <link rel="stylesheet" href="css/animate.css">
+        <!-- Style -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Responsive -->
+        <link rel="stylesheet" href="css/responsive.css">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Balises Hreflang (Ajoutez ici) -->
+        <link rel="alternate" hreflang="fr-BE" href="https://marcwilliame.be">
+        <style>
+/* OR if you prefer to use a wrapper div */
+.content-wrapper {
+    padding-top: 150px; /* Adjust this value as needed */
+}
+.container-form {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px; /* Adjust this value to increase space between the nav menu and the form */
+    margin-bottom: 50px; /* Optional: Space at the bottom */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.caricature-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.caricature-options .option {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+    flex-basis: 48%; /* Adjusted to allow two items per row */
+}
+
+.caricature-options .option img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.caricature-options .option.selected {
+    border-color: #007BFF;
+}
+.format-option {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: inline-block; /* Display options in a line */
+}
+.format-option.selected {
+    border-color: #007BFF; /* or any highlight color you prefer */
+}
+
+#priceDisplay {
+    border: 2px solid #0fb6ac; /* Frame around the price display */
+    background-color: #0fb6ac; /* Background color */
+    color: white; /* White text color */
+    padding: 10px; /* Some padding inside the frame */
+    font-size: 24px; /* Larger font size for visibility */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Space above the price display */
+    margin-bottom: 20px; /* Space below the price display */
+    width: 100%; /* Adjust the width to fit the content */
+    margin-left: auto; /* Center the block horizontally */
+    margin-right: auto;
+}
+
+
+.services-options {
+    text-align: left;
+}
+
+.services-options div {
+    margin-bottom: 10px; /* Add some space between each option */
+    margin-left: 15px;
+}
+
+.services-options label {
+    font-weight: normal; /* Ensures labels are not bold */
+}
+
+
+.form-question p {
+    text-align: left;
+    margin-left: 15px; /* Adjust for alignment */
+    margin-bottom: 20px; /* Space after each question */
+    margin-top: 40px; /* Space after each question */
+
+}
+#accordion .card {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px; /* Ajustez cette valeur en fonction de la largeur souhaitée */
+}
+
+
+            </style>
+        </head>
+  <body id="index-page">
+    <!-- Preloader -->
+    <div class="leonardo-preloader"></div>
+    <!-- Header Start -->
+    <header id="header">
+      <nav class="navbar-default le-navbar">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button id="menu-nav-btn" type="button" class="mobile-menu-btn navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span></span>
+            </button>
+            <a class="logo" href="https://www.marcwilliame.be">
+              <img src="img/logo/logo-marc-williame.png" alt="Logo Marc Williame">
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="nav-btn" href="#services">Services</a></li>
+              <li><a class="nav-btn" href="#portfolio">Portfolio</a></li>
+              <li><a class="nav-btn" href="#about">A propos</a></li>
+              <li><a class="nav-btn" href="#pricing">Tarifs</a></li>
+              <li><a class="nav-btn" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div><!-- container end -->
+      </nav><!-- navbar end -->
+      <div class="content-wrapper">
+      <div class="order-form" id="order-form">
+        <div class="container-form">
+            <!-- Add a title and description for the form -->
+            <div class="form-title">
+                <h2>Commandez votre caricature / portrait en ligne</h2>
+                <p>Remplissez le formulaire pour commander votre caricature ou portrait personnalisé en 5 étapes faciles. </p>
+            </div>
+            <form id="caricature-order-form" class="form" action="https://formspree.io/f/xaygljbq" method="POST">
+
+            <!-- Services checkboxes -->
+            <div class="form-question">
+<p><b>1. Choix du service :</b> Caricature, portrait, ou illustration personnalisée ?</p>
+<div class="services-options">
+    <div>
+        <input type="checkbox" id="serviceCaricature" name="serviceCaricature" onchange="calculateAndDisplayPrice()">
+        <label for="serviceCaricature">Caricature</label>
+    </div>
+    <div>
+        <input type="checkbox" id="servicePortrait" name="servicePortrait" onchange="calculateAndDisplayPrice()">
+        <label for="servicePortrait">Portrait</label>
+    </div>
+    <div>
+        <input type="checkbox" id="serviceIllustration" name="serviceIllustration" onchange="calculateAndDisplayPrice()">
+        <label for="serviceIllustration">Illustration personnalisée</label>
+    </div>
+</div>
+</div>
+            <!-- Description of the demand -->
+            <div class="form-question">
+<p><b>2. Quel est le contexte ?</b> Combien de personnes à représenter ?</p>
+            <div class="field form-group">
+                <textarea rows="5" cols="50" name="message" class="form-control" id="description" placeholder="" required></textarea>
+            </div>
+            </div>
+                <!-- Image Upload Fields -->
+                <div class="form-question">
+                <p><b>3.Veuillez fournir les photos pour la caricature ou le portrait.</b></p>
+                <div class="field form-group">
+                    <input type="file" class="form-control" id="image1" name="image1" accept="image/*">
+                </div>
+                <div class="field form-group">
+                    <input type="file" class="form-control" id="image2" name="image2" accept="image/*">
+                </div>
+                <div class="field form-group">
+                    <input type="file" class="form-control" id="image3" name="image3" accept="image/*">
+                </div>
+                </div>
+<!-- Support fields -->
+<div class="form-question">
+<p><b>4. Support d'impression :</b> Choix du support pour l'impression de votre caricature/portrait.</p>
+<div class="caricature-options">
+    <div class="option" onclick="selectOption('canvas')">
+        <img src="img/tableau.jpeg" alt="Sur toile">
+        <p>Sur toile</p>
+        <input type="checkbox" id="canvasCheckbox" name="canvasCheckbox">
+    </div>
+    <div class="option" onclick="selectOption('framed')">
+        <img src="img/cadre.jpeg" alt="Encadrée">
+        <p>Encadrée</p>
+        <input type="checkbox" id="framedCheckbox" name="framedCheckbox">
+    </div>
+    <div class="option" onclick="selectOption('mug')">
+        <img src="img/mug.jpeg" alt="Sur mug">
+        <p>Sur mug</p>
+        <input type="checkbox" id="mugCheckbox" name="mugCheckbox">
+    </div>
+    <div class="option" onclick="selectOption('key')">
+        <img src="img/puzzle.jpeg" alt="Sur porte-clés">
+        <p>Sur porte-clés</p>
+        <input type="checkbox" id="keychainCheckbox" name="keychainCheckbox">
+    </div>
+</div>
+</div>
+<!-- Format selection section -->
+<div class="form-question">
+    <p><b>5. Dimensions:</b> Sous quel format voulez-vous que la caricature ou le portrait soit imprimé ? (Veuillez d'abord sélectionner un support)</p>
+    <div id="dynamicFormatOptions"> <!-- This div will hold the dynamic content -->
+        <!-- Dynamic format options will be appended here -->
+    </div>
+</div>
+<div id="priceDisplay">
+    Prix total: <span id="totalPrice">0</span> 
+</div>
+<!-- Personal Data Fields (Show these after the price is agreed upon) -->
+<div class="personal-data">
+    <div class="form-question">
+<p><b>Prêt à commander ?</b> Remplissez ces dernières informations pour compléter votre demande.</p>
+    <div class="field form-group">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Nom + Prénom" required>
+    </div>
+    <div class="field form-group">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+    </div>
+    <div class="field form-group">
+        <input type="address" class="form-control" id="address" name="address" placeholder="Rue + n°" required>
+    </div>
+    <div class="field form-group">
+        <input type="address" class="form-control" id="address" name="address" placeholder="Code postal + commune" required>
+    </div>
+    </div>
+
+</div>    
+                <div id="my-form-status"></div> <!-- Form status message -->
+                <div class="field btn-style text-center">
+                    <button type="submit">Commandez</button>
+                </div>
+                <div id="my-form-status"></div> 
+
+            </form>
+        </div>
+    </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+      <!-- FAQ Section Start -->
+  <div class="row wow fadeIn" data-wow-delay="0.2s">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p>Des interrogations sur votre commande ? Trouvez ci-dessous des réponses aux questions fréquentes. Pour toute demande spécifique, je suis à votre disposition, n'hésitez pas à me contacter.        </p>
+        <div id="accordion">
+            <!-- First Question -->
+  <div class="card">
+    <div class="card-header" id="headingOne">
+        <p class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                1. Comment passer une commande ?
+            </button>
+          </p>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            Vous pouvez passer une commande en me contactant via le formulaire de contact sur cette page ou par email à contact@marcwilliame.com.
+        </div>
+    </div>
+  </div>
+            <!-- Second Question -->
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <p class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            2. Quel est le délai de livraison ?
+                        </button>
+                      </p>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        Le délai de création standard est de 15 jours ouvrables. Pour des demandes urgentes, veuillez me contacter pour discuter de la faisabilité et des éventuels délais accélérés.
+                    </div>
+                </div>
+            </div>
+            <!-- Third Question -->
+  <div class="card">
+    <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                3. Comment se déroule le processus de paiement ?
+            </button>
+        </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+            Le processus de paiement est simple et transparent. Après avoir discuté et convenu des détails de votre commande, un acompte de 20% est requis pour débuter le travail. Le solde restant est payable à la livraison de l'illustration finale. Une fois l'acompte reçu, je commence à travailler sur votre commande et vous tiendrai informé tout au long du processus de création.
+        </div>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+  </div>
+  <!-- FAQ Section End -->
+  
+    </div><!-- container end -->
+  </div>
+    
+    <script>
+    // Prices object
+    const prices = {
+        services: {
+        caricature: 90, // Example price for caricature
+        portrait: 120, // Example price for portrait
+        illustration: 300 // Example price for personalized illustration
+    },
+        canvas: {
+        "20x30cm": 16, // Example prices
+        "30x30cm": 13,
+        "30x40cm": 23,
+        "40x60cm": 29,
+        "50x70cm": 36,
+        "60x90cm": 42
+        },
+        framed: {
+        "20x30cm": 44, // Example prices
+        "30x30cm": 46,
+        "30x40cm": 52,
+        "40x50cm": 67
+        },
+        mug: {
+            OneSize: 7
+        },
+        keychain: {
+            OneSize: 9
+        }
+    };
+
+    var selectedSupport = '';
+    var selectedFormat = '';
+
+    function updateFormatOptions(selectedSupport) {
+    var dynamicFormatOptions = document.getElementById('dynamicFormatOptions');
+    dynamicFormatOptions.innerHTML = ''; // Clear existing dynamic content
+
+    var formats = [];
+    switch (selectedSupport) {
+            case 'canvas':
+                formats = ["20x30cm", "30x30cm", "30x40cm", "40x60cm", "50x70cm", "60x90cm"];
+                break;
+            case 'framed':
+                formats = ["20x30cm", "30x30cm", "30x40cm", "40x50cm"];
+                break;
+            case 'mug':
+            case 'keychain':
+                formats = ["OneSize"];
+                break;
+        }
+
+        formats.forEach(function(format) {
+        var option = document.createElement('div');
+        option.textContent = format;
+        option.className = 'format-option';
+        option.onclick = function() { selectFormat(format); };
+        dynamicFormatOptions.appendChild(option);
+    });
+}
+    function selectOption(support) {
+        selectedSupport = support;
+        updateFormatOptions(support);
+        calculateAndDisplayPrice();
+    }
+
+    function selectFormat(format) {
+        selectedFormat = format;
+        calculateAndDisplayPrice();
+
+        document.querySelectorAll('.format-option').forEach(function(option) {
+            option.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+    }
+
+    function calculateAndDisplayPrice() {
+    const shippingCost = 5; // Shipping cost
+    let totalPrice = 0;
+
+    // Add prices for selected services
+    if (document.getElementById('serviceCaricature').checked) {
+        totalPrice += prices.services.caricature;
+    }
+    if (document.getElementById('servicePortrait').checked) {
+        totalPrice += prices.services.portrait;
+    }
+    if (document.getElementById('serviceIllustration').checked) {
+        totalPrice += prices.services.illustration;
+    }
+
+    // Add prices for selected support and format
+    if (selectedSupport && selectedFormat) {
+        totalPrice += prices[selectedSupport][selectedFormat] || 0;
+    }
+
+    // Add shipping cost to total price
+    totalPrice += shippingCost;
+
+    // Update display to include mention of shipping cost
+    document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
+}
+
+    // Form submission handling
+    var form = document.getElementById("caricature-order-form");
+    form.addEventListener("submit", handleSubmit);
+
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("my-form-status");
+          var data = new FormData(event.target);
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Thank you for your submission!";
+              form.reset()
+            } else {
+              response.json().then(data => {
+                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                } else {
+                  status.innerHTML = "Oops! There was a problem submitting your form";
+                }
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+    
+    <!-- Footer start -->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+            <div>
+              <a href="https://www.instagram.com/marcwllm/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/MrcWilliame/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/marc_williame"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p> © 2023 - Marc Williame</p>
+           <a href="https://www.marcwilliame.be/conditions-generales">Conditions Générales </a>
+          </div>
+        </div><!-- row end -->
+      </div><!-- container end -->
+    </footer>
+    <!-- Footer end -->
+    <!-- Jquery -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- scrollreveal js -->
+    <script src="js/scrollreveal.js"></script>
+    <!-- Isotope js -->
+    <script src="js/isotope.pkgd.min.js"></script>
+    <!-- wow.js -->
+    <script src="js/wow.min.js"></script>
+    <!-- Main js -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
