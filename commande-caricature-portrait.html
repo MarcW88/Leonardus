@@ -239,8 +239,7 @@
             </div>
                 <!-- Image Upload Fields -->
                 <div class="form-question">
-                <p><b>3.Veuillez fournir les photos pour la caricature ou le portrait.</b></p>
-                <p><em>Idéalement, veuillez fournir 2 à 3 photos dans des angles différents. Les photos seront supprimées une fois le projet terminé.</em></p>
+                <p><b>3.Veuillez fournir les photos pour la caricature ou le portrait.</b><br/><em style="font-size: 0.8em;">Idéalement, veuillez fournir 2 à 3 photos dans des angles différents. Les photos seront supprimées une fois le projet terminé.</em></p>
                 <div class="field form-group">
                     <input type="file" class="form-control" id="image1" name="image1" accept="image/*">
                 </div>
@@ -488,37 +487,37 @@ function selectOption(support) {
 
     // Form submission handling
     var form = document.getElementById("caricature-order-form");
-    form.addEventListener("submit", handleSubmit);
 
-        
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("my-form-status");
-          var data = new FormData(event.target);
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.innerHTML = "Thank you for your submission!";
-              form.reset()
-            } else {
-              response.json().then(data => {
-                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                } else {
-                  status.innerHTML = "Oops! There was a problem submitting your form";
-                }
-              })
-            }
-          }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form";
-          });
+async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.getElementById("my-form-status");
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+        'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      status.innerHTML = "Merci pour votre soumission !";
+      form.reset();
+      window.location.href = "merci.html";  // Correct redirection
+    } else {
+      response.json().then(data => {
+        if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+        } else {
+          status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
         }
-        form.addEventListener("submit", handleSubmit)
+      })
+    }
+  }).catch(error => {
+    status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+  });
+}
+
+form.addEventListener("submit", handleSubmit);
     </script>
     
     <!-- Footer start -->
