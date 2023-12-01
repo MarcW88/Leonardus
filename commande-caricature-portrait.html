@@ -58,7 +58,7 @@
 
 .caricature-options .option {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
     cursor: pointer;
     margin: 5px;
@@ -66,9 +66,25 @@
 }
 
 .caricature-options .option img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* This will maintain the aspect ratio */
+    max-width: 300px; /* Set a maximum width */
+    max-height: 300px; /* Set a maximum height */
+    display: block; /* This will remove any extra space below the image */
+    margin: 0 auto; /* Center the image if the container is wider */
+    margin-bottom: 5px; /* Reduce space below the image */
+
+}
+
+.caricature-options .option p {
+    
+    font-weight: bold;
+    margin-top: 0; /* Reduce space above the title */
+    margin-bottom: 0; /* Optionally reduce space below the title */
+    text-align: center; /* Center the text */
+    margin-left: auto; /* Center the block */
+    margin-right: auto; /* Center the block */
+    max-width: 80%; /* Adjust this value as needed */
 }
 
 .caricature-options .option.selected {
@@ -83,6 +99,12 @@
 }
 .format-option.selected {
     border-color: #007BFF; /* or any highlight color you prefer */
+}
+
+.caricature-options .option input[type="checkbox"] {
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
 }
 
 #priceDisplay {
@@ -126,6 +148,7 @@
     margin-right: auto;
     max-width: 600px; /* Ajustez cette valeur en fonction de la largeur souhaitée */
 }
+
 
 
             </style>
