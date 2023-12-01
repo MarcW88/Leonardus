@@ -250,7 +250,7 @@
     </div>
     <div class="option" onclick="selectOption('key')">
         <img src="img/puzzle.jpeg" alt="Sur porte-clés">
-        <p>Sur porte-clés</p>
+        <p>Sous format puzzle</p>
         <input type="checkbox" id="keychainCheckbox" name="keychainCheckbox">
     </div>
 </div>
@@ -382,7 +382,8 @@
             OneSize: 7
         },
         keychain: {
-            OneSize: 9
+        "A4": 22, // Example prices
+        "A5": 16, 
         }
     };
 
@@ -402,8 +403,10 @@
                 formats = ["20x30cm", "30x30cm", "30x40cm", "40x50cm"];
                 break;
             case 'mug':
+            formats = ["OneSize"];
+                break;
             case 'keychain':
-                formats = ["OneSize"];
+                formats = ["A4", "A5"];
                 break;
         }
 
