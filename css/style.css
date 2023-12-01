@@ -411,8 +411,10 @@ button:hover {
 }
 
 .service-illustration img {
-	position: absolute;
-	right: 100px;
+	max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
 }
 .offer {
 	margin-bottom: 90px;
