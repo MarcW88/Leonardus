@@ -503,7 +503,6 @@ button:hover {
   perspective: 360px;
 }
 .img-box-overlay  .after-overlay {
-  background: rgba(77, 81, 104, 0.7);
   position: absolute;
   top: -50%;
   left: 0;
@@ -963,7 +962,7 @@ footer p {
 .portfolio-style {
 	background-color: #fafafa;
 	padding: 75px 0px 50px 0px;
-	margin-top: 90px;
+	margin-top: 0px;
 }
 .portfolio-illustration img {
 	position: absolute;
