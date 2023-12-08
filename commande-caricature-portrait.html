@@ -51,7 +51,7 @@
 .caricature-options {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -149,6 +149,47 @@
     max-width: 600px; /* Ajustez cette valeur en fonction de la largeur souhaitée */
 }
 
+/* Aligning radio buttons and their labels to the left */
+.radio-buttons {
+    text-align: left;
+
+}
+.radio-buttons input[type="radio"] {
+    text-align: left;
+    margin-left: 20px; /* Adjust this value as needed for more margin */
+}
+
+/* Alternatively, if you have a specific class or ID for the radio button container, you can use that for more precise styling. For example: */
+#radioButtonContainer {
+    text-align: left;
+
+}
+
+/* Ensure labels are inline with the radio buttons */
+.radio-buttons label {
+    display: inline-block;
+    margin-left: 5px; /* Adjust as needed for spacing */
+}
+
+/* Set radio button labels to normal font weight */
+.form-question label {
+    font-weight: normal;
+}
+
+/* Style for Custom File Upload Button */
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-right: 10px; /* Space between button and text */
+    text-align: left;
+}
+
+.form-question, .form-question .field {
+    text-align: center; /* Center-align the agreement checkbox */
+    margin-left: 15px;
+}
 
 
             </style>
@@ -230,26 +271,47 @@
     </div>
 </div>
 </div>
-            <!-- Description of the demand -->
-            <div class="form-question">
-<p><b>2. Quel est le contexte ?</b> Combien de personnes à représenter ?</p>
-            <div class="field form-group">
-                <textarea rows="5" cols="50" name="message" class="form-control" id="description" placeholder="" required></textarea>
-            </div>
-            </div>
-                <!-- Image Upload Fields -->
-                <div class="form-question">
-                <p><b>3.Veuillez fournir les photos pour la caricature ou le portrait.</b><br/><em style="font-size: 0.8em;">Idéalement, veuillez fournir 2 à 3 photos dans des angles différents. Les photos seront supprimées une fois le projet terminé.</em></p>
-                <div class="field form-group">
-                    <input type="file" class="form-control" id="image1" name="image1" accept="image/*">
-                </div>
-                <div class="field form-group">
-                    <input type="file" class="form-control" id="image2" name="image2" accept="image/*">
-                </div>
-                <div class="field form-group">
-                    <input type="file" class="form-control" id="image3" name="image3" accept="image/*">
-                </div>
-                </div>
+<!-- Question about multiple people -->
+<div class="form-question">
+    <p><b>2. Nombre de personnes :</b> La caricature ou le portrait inclut-elle plusieurs personnes ?</p>
+<div class="radio-buttons">
+    <div>
+        <input type="radio" id="multipleYes" name="multiplePeople" onchange="togglePersonCountInput()">
+        <label for="multipleYes">Oui</label>
+    </div>
+    <div>
+        <input type="radio" id="multipleNo" name="multiplePeople" onchange="togglePersonCountInput()">
+        <label for="multipleNo">Non</label>
+    </div>
+</div>
+</div>
+
+<!-- Input field for number of people, initially hidden -->
+<div class="form-question" id="personCountInput" style="display: none;">
+    <p><b>2.1. Combien de personnes doivent être représentés?</b><br/><em style="font-size: 0.8em;">Caricature: + €45/pp  |  Portrait: +€60/pp</em></p>
+</p>
+    <input type="number" class="form-control" id="numberOfPeople" name="numberOfPeople" min="1" placeholder="Ajoutez le nombre de personnes" onchange="calculateAndDisplayPrice()">
+</div>
+<!-- Image Upload Fields -->
+<div class="form-question">
+    <p><b>3. Veuillez fournir les photos pour la caricature ou le portrait.</b><br/>
+       <em style="font-size: 0.8em;">Idéalement, veuillez fournir 2 à 3 photos dans des angles différents. Les photos seront supprimées une fois le projet terminé.</em></p>
+       <div class="field form-group" style="text-align: left;">
+        <label for="image1" class="custom-file-upload">Choisir une image</label>
+        <input type="file" class="form-control" id="image1" name="image1" accept="image/*" style="display: none;" onchange="updateFileName('image1')">
+        <span id="file-chosen-image1" style="font-size: 0.8em;">Pas de fichier choisi</span>
+    </div>
+    <div class="field form-group" style="text-align: left;">
+        <label for="image2" class="custom-file-upload">Choisir une image</label>
+        <input type="file" class="form-control" id="image2" name="image2" accept="image/*" style="display: none;" onchange="updateFileName('image2')">
+        <span id="file-chosen-image2" style="font-size: 0.8em;">Pas de fichier choisi</span>
+    </div>
+    <div class="field form-group" style="text-align: left;">
+        <label for="image3" class="custom-file-upload">Choisir une image</label>
+        <input type="file" class="form-control" id="image3" name="image3" accept="image/*" style="display: none;" onchange="updateFileName('image3')">
+        <span id="file-chosen-image3" style="font-size: 0.8em;">Pas de fichier choisi</span>
+    </div>
+</div>
 <!-- Support fields -->
 <div class="form-question">
 <p><b>4. Support d'impression :</b> Choix du support pour l'impression de votre caricature/portrait.</p>
@@ -389,6 +451,13 @@
     <br/><br/>    <br/>
 
     <script>
+
+function updateFileName(inputId) {
+    var inputElement = document.getElementById(inputId);
+    var fileNameSpan = document.getElementById('file-chosen-' + inputId);
+    fileNameSpan.textContent = inputElement.files.length > 0 ? inputElement.files[0].name : "Pas de fichier choisi";
+}
+
     // Prices object
     const prices = {
         services: {
@@ -483,6 +552,26 @@ function selectOption(support) {
         totalPrice += prices.services.illustration;
     }
 
+       // Determine base price and additional cost per extra person based on the service
+       if (document.getElementById('serviceCaricature').checked) {
+        totalPrice = prices.services.caricature; // Base price for the first caricature
+        additionalPersonCost = 45; // Additional cost per extra person
+    } else if (document.getElementById('servicePortrait').checked) {
+        totalPrice = prices.services.portrait; // Base price for the first portrait
+        additionalPersonCost = 60; // Additional cost per extra person
+    } else if (document.getElementById('serviceIllustration').checked) {
+        totalPrice = prices.services.illustration; // Base price for the first illustration
+        additionalPersonCost = 45; // Additional cost per extra person
+    }
+
+    // Add additional cost for multiple people
+    if (document.getElementById('multipleYes').checked) {
+        let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 0);
+        if (numberOfPeople > 1) {
+            // Subtract one since the first person is already included in the base price
+            totalPrice += additionalPersonCost * (numberOfPeople - 1);
+        }
+    }
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
         totalPrice += prices[selectedSupport][selectedFormat] || 0;
@@ -493,6 +582,26 @@ function selectOption(support) {
 
     // Update display to include mention of shipping cost
     document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
+}
+
+// Calculate cost for multiple people
+if (document.getElementById('multipleYes').checked) {
+        let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 0);
+        if (numberOfPeople > 1) {
+            // Subtract one since the first person is already included in the base price
+            totalPrice += additionalPersonCost * (numberOfPeople - 1);
+        }
+    }
+
+
+function togglePersonCountInput() {
+    var personCountInput = document.getElementById('personCountInput');
+    if (document.getElementById('multipleYes').checked) {
+        personCountInput.style.display = 'block';
+    } else {
+        personCountInput.style.display = 'none';
+    }
+    calculateAndDisplayPrice(); // Recalculate price
 }
 
     // Form submission handling
