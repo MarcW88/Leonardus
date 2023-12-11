@@ -9,14 +9,13 @@
   .hero-area {
     text-align: center;
     margin-left: 0px auto;
-    margin-bottom: 60px;
   }
   .hero-img {
     top: 50%;
     left: 50%;
     width: 360px;
     height: 360px;
-    margin-top: 80px;
+    margin-bottom: 60px;
     margin-left: -140px;
   }
   .hero-area {
@@ -334,9 +333,10 @@
   .hero-img {
     top: 50%;
     left: 50%;
-    width: 250px;
-    margin-top: 80px;
-    margin-left: -80px;
+    width: 350px;
+    height: 350px;
+margin-bottom: 80px;
+    margin-left: -130px;
   }
   h1{
   	font-size: 40px;
@@ -368,7 +368,7 @@
   }
   .service-illustration img  {
     width: 300px;
-    margin-left: -150px;
+    margin-left: 30px;
   }
   .offer {
     margin-bottom: 45px;
@@ -378,7 +378,7 @@
     padding: 0px 20px;
   }
   .service-offers {
-    margin-top: 450px;
+    margin-top: 30px;
   }
   .stats-box {
     padding-top: 20px;
@@ -392,6 +392,7 @@
   }
   .btn-style {
     margin-top: 20px;
+    display: flex;
   }
   .partners {
     padding: 30px 0px;
@@ -454,7 +455,7 @@
     left: 50%;
     width: 150px;
     height: 150px;
-    margin-top: 80px;
+    margin-bottom: 60px;
     margin-left: -20px;
   }
   .service-illustration img  {
