@@ -252,24 +252,27 @@
                 </em>
             </div>
             <form id="caricature-order-form" class="form" action="https://formspree.io/f/xaygljbq" method="POST">
+<input type="hidden" id="hiddenSelectedSupport" name="selectedSupport">
+<input type="hidden" id="hiddenSelectedFormat" name="selectedFormat">
+<input type="hidden" id="totalPriceInput" name="totalPrice" value="">
 
-            <!-- Services checkboxes -->
-            <div class="form-question">
-<p><b>1. Choix du service :</b> Caricature, portrait, ou illustration personnalisée ?</p>
-<div class="services-options">
-    <div>
-        <input type="checkbox" id="serviceCaricature" name="serviceCaricature" onchange="calculateAndDisplayPrice()">
-        <label for="serviceCaricature">Caricature</label>
+<!-- Services radio buttons -->
+<div class="form-question">
+    <p><b>1. Choix du service :</b> Caricature, portrait, ou illustration personnalisée ?</p>
+    <div class="services-options">
+        <div>
+            <input type="radio" id="serviceCaricature" name="serviceType" value="Caricature">
+            <label for="serviceCaricature">Caricature</label>
+        </div>
+        <div>
+            <input type="radio" id="servicePortrait" name="serviceType" value="Portrait">
+            <label for="servicePortrait">Portrait</label>
+        </div>
+        <div>
+            <input type="radio" id="serviceIllustration" name="serviceType" value="Illustration personnalisée">
+            <label for="serviceIllustration">Illustration personnalisée</label>
+        </div>
     </div>
-    <div>
-        <input type="checkbox" id="servicePortrait" name="servicePortrait" onchange="calculateAndDisplayPrice()">
-        <label for="servicePortrait">Portrait</label>
-    </div>
-    <div>
-        <input type="checkbox" id="serviceIllustration" name="serviceIllustration" onchange="calculateAndDisplayPrice()">
-        <label for="serviceIllustration">Illustration personnalisée</label>
-    </div>
-</div>
 </div>
 <!-- Question about multiple people -->
 <div class="form-question">
@@ -319,22 +322,22 @@
     <div class="option" onclick="selectOption('canvas')">
         <img src="img/tableau.jpeg" alt="Sur toile">
         <p>Sur toile</p>
-        <input type="checkbox" id="canvasCheckbox" name="canvasCheckbox">
+        <input type="radio" id="canvasRadio" name="supportType" value="canvas">
     </div>
     <div class="option" onclick="selectOption('framed')">
         <img src="img/cadre.jpeg" alt="Encadrée">
         <p>Encadrée</p>
-        <input type="checkbox" id="framedCheckbox" name="framedCheckbox">
+        <input type="radio" id="canvasRadio" name="supportType" value="framed">
     </div>
     <div class="option" onclick="selectOption('mug')">
         <img src="img/mug.jpeg" alt="Sur mug">
         <p>Sur mug</p>
-        <input type="checkbox" id="mugCheckbox" name="mugCheckbox">
+        <input type="radio" id="canvasRadio" name="supportType" value="mugCheckbox">
     </div>
     <div class="option" onclick="selectOption('keychain')">
         <img src="img/puzzle.jpeg" alt="Sur porte-clés">
         <p>Sous format puzzle</p>
-        <input type="checkbox" id="keychainCheckbox" name="keychainCheckbox">
+        <input type="radio" id="canvasRadio" name="supportType" value="keychainCheckbox">
     </div>
 </div>
 </div>
@@ -452,6 +455,8 @@
 
     <script>
 
+
+
 function updateFileName(inputId) {
     var inputElement = document.getElementById(inputId);
     var fileNameSpan = document.getElementById('file-chosen-' + inputId);
@@ -522,20 +527,16 @@ function updateFileName(inputId) {
 
 function selectOption(support) {
     selectedSupport = support;
-    updateFormatOptions(support); // Update format options based on selected support
+    document.getElementById('hiddenSelectedSupport').value = support;
+    updateFormatOptions(support);
     calculateAndDisplayPrice();
 }
 
-
-    function selectFormat(format) {
-        selectedFormat = format;
-        calculateAndDisplayPrice();
-
-        document.querySelectorAll('.format-option').forEach(function(option) {
-            option.classList.remove('selected');
-        });
-        event.target.classList.add('selected');
-    }
+function selectFormat(format) {
+    selectedFormat = format;
+    document.getElementById('hiddenSelectedFormat').value = format;
+    calculateAndDisplayPrice();
+}
 
     function calculateAndDisplayPrice() {
     const shippingCost = 5; // Shipping cost
@@ -580,7 +581,10 @@ function selectOption(support) {
     // Add shipping cost to total price
     totalPrice += shippingCost;
 
-    // Update display to include mention of shipping cost
+    // Update the total price input field
+    document.getElementById('totalPriceInput').value = totalPrice;
+
+    // Update display
     document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
 }
 
@@ -604,36 +608,46 @@ function togglePersonCountInput() {
     calculateAndDisplayPrice(); // Recalculate price
 }
 
-    // Form submission handling
-    var form = document.getElementById("caricature-order-form");
+// Form submission handling
+var form = document.getElementById("caricature-order-form");
 
 async function handleSubmit(event) {
-  event.preventDefault();
-  var status = document.getElementById("my-form-status");
-  var data = new FormData(event.target);
-  fetch(event.target.action, {
-    method: form.method,
-    body: data,
-    headers: {
-        'Accept': 'application/json'
-    }
-  }).then(response => {
-    if (response.ok) {
-      status.innerHTML = "Merci pour votre soumission !";
-      form.reset();
-      window.location.href = "merci.html";  // Correct redirection
-    } else {
-      response.json().then(data => {
-        if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-          status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-        } else {
-          status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+
+    // Append the dynamically calculated price from the hidden input field
+    var totalPriceInput = document.getElementById('totalPriceInput').value;
+    data.append('totalPrice', totalPriceInput);
+
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
         }
-      })
-    }
-  }).catch(error => {
-    status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
-  });
+    }).then(response => {
+        if (response.ok) {
+            status.innerHTML = "Merci pour votre soumission !";
+            form.reset();
+
+            // Convert the form data to a URL-encoded string
+            var formData = new URLSearchParams(data).toString();
+
+            // Redirect the user to the confirmation page with query parameters
+            window.location.href = "merci.html?" + formData;
+        } else {
+            response.json().then(data => {
+                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+                }
+            })
+        }
+    }).catch(error => {
+        status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+    });
 }
 
 form.addEventListener("submit", handleSubmit);
