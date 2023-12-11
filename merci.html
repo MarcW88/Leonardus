@@ -111,7 +111,8 @@
         <p><b>Dimensions: </b><span id="selected-format"></span></p>
         <p id="contact-info"><b>Coordonnées</b></p>
         <p><b>Nom + prénom: </b><span id="user-name"></span></p>
-        <p><b>Rue + n°: </b><span id="user-address"></span></p>
+        <p><b>Rue + n°: </b><span id="user-street-address"></span></p>
+        <p><b>Commune: </b><span id="user-postal-code"></span></p>
         <p><b>Email: </b><span id="user-email"></span></p>
         <br/>
         <p id="price-display">Prix total: <span id="totalPrice"></span></p>
@@ -138,7 +139,8 @@
             var selectedFormat = urlParams.get("selectedFormat");
             var name = urlParams.get("name");
             var email = urlParams.get("email");
-            var address = urlParams.get("address");
+            var streetAddress = urlParams.get("streetAddress");
+            var postalCode = urlParams.get("postalCode");
             var totalPrice = urlParams.get("totalPrice"); // Retrieve total price
         
             // Display the information on the confirmation page
@@ -148,8 +150,8 @@
             document.getElementById("selected-format").textContent = selectedFormat;
             document.getElementById("user-name").textContent = name;
             document.getElementById("user-email").textContent = email;
-            document.getElementById("user-address").textContent = address;
-        
+            document.getElementById("user-street-address").textContent = streetAddress;
+            document.getElementById("user-postal-code").textContent = postalCode;
             // Display total price if it's available
             if (totalPrice) {
                 document.getElementById("totalPrice").textContent = totalPrice + ' €';
