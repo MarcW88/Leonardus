@@ -162,6 +162,9 @@
         ]
       }
       </script>
+        <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.marcwilliame.be">
+
   </head>
   <body id="index-page">
     <!-- Preloader -->
@@ -602,19 +605,19 @@
             }
           }).then(response => {
             if (response.ok) {
-              status.innerHTML = "Merci pour votre soumission !";
+              status.innerHTML = "Merci pour votre demande !";
               form.reset()
             } else {
               response.json().then(data => {
                 if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
                   status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
                 } else {
-                  status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+                  status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi de votre formulaire";
                 }
               })
             }
           }).catch(error => {
-            status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+            status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi de votre formulaire";
           });
         }
         form.addEventListener("submit", handleSubmit)
@@ -636,10 +639,9 @@
               <a href="https://twitter.com/marc_williame"><i class="fab fa-twitter"></i></a>
             </div>
             <p> © 2023-2024 | Marc Williame</p>
-           <a href="https://www.marcwilliame.be/conditions-generales">Conditions Générales</a>  |  
-           <a href="https://www.marcwilliame.be/mentions-legales">Mentions légales</a>  |  
-           <a href="https://www.marcwilliame.be/politique-confidentialite">Politique de confidentialité</a> 
-          </div>
+            <a href="https://www.marcwilliame.be/conditions-generales">Conditions Générales</a>  |  
+            <a href="https://www.marcwilliame.be/mentions-legales">Mentions légales</a>  |  
+            <a href="https://www.marcwilliame.be/politique-confidentialite">Politique de confidentialité</a>           </div>
         </div><!-- row end -->
       </div><!-- container end -->
     </footer>
