@@ -272,7 +272,7 @@
                     if (response.ok) {
                     status.innerHTML = "Merci pour votre soumission !";
                     form.reset();
-                    window.location.href = "merci.html";  // Redirection vers la page de remerciement
+                    window.location.href = "merci-pour-votre-demande.html";  // Redirection vers la page de remerciement
                     } else {
                       response.json().then(data => {
                         if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
