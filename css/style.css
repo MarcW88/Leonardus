@@ -132,9 +132,19 @@ h6{
 }
 
 .nav-btn-command {
-	color: #0fb6ac !important;
-    font-weight: bold; /* Makes the text bolder */
-    font-size: 1.1em; /* Slightly larger text */
+    color: #ffffff !important;
+    background-color: #ce903e;
+	border: 1px solid #ce903e;
+	width: 150px;
+	height: 40px;
+	padding: 10px !important;
+	text-align: center;
+	text-decoration: none;
+}
+.nav-btn-command:hover {
+    background-color: #ce903e !important; /* Change background color on hover */
+    color: #ffffff !important; /* Change text color on hover */
+    border-color: #ce903e !important; /* Optional: Change border color on hover */
 }
 
 .nav-btn {
