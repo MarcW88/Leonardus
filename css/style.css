@@ -172,9 +172,6 @@ a:focus {
 	color: #fff;
 	padding: 16px 40px;
 	background-color: #c1903e;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	border-radius: 15px;
 	border: 1px solid #c1903e;
 	text-decoration: none;
 }
