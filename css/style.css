@@ -286,6 +286,8 @@ button:hover {
 	padding: 15px 45px 15px 25px;
 	color: #4D5168;
 	text-transform: capitalize;
+	text-decoration: none !important;
+
 }
 .dropdown-menu {
 	font-size: 15px;
@@ -296,11 +298,7 @@ button:hover {
 }
 .dropdown-menu > li > a:hover {
 	color: #4D5168;
-	background: rgb(203,250,20); /* Old browsers */
-	background: -moz-linear-gradient(left, rgba(203,250,20,1) 0%, rgba(9,215,203,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, rgba(203,250,20,1) 0%,rgba(9,215,203,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, rgba(203,250,20,1) 0%,rgba(9,215,203,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbfa14', endColorstr='#09d7cb',GradientType=1 ); /* IE6-9 */
+
 }
 .mobile-menu-btn {
   background-color: transparent;
