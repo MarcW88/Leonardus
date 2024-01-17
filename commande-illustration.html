@@ -71,6 +71,14 @@ src="https://www.facebook.com/tr?id=2954851377978205&ev=PageView&noscript=1"
     position: relative;
 }
 
+.container-form {
+    margin-bottom: 20px; /* Adds space between the containers */
+    padding: 20px; /* Padding inside each container */
+    border: 1px solid #ddd; /* Adds a border to each container */
+    background-color: #f9f9f9; /* Background color of each container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .faq-container {
         margin: 20px;
         padding: 10px;
@@ -131,6 +139,7 @@ src="https://www.facebook.com/tr?id=2954851377978205&ev=PageView&noscript=1"
 
 /* Price Display */
 #priceDisplay {
+    display: none;
     border: 2px solid #0fb6ac;
     background-color: #0fb6ac;
     color: white;
@@ -267,6 +276,12 @@ font-size: 1.2em;
     margin: 5px;
 }
 
+.custom-textarea-border {
+    border: 1px solid #dfdede; /* Example: Black border */
+    padding: 10px;
+}
+
+
             </style>
         </head>
   <body id="index-page">
@@ -303,6 +318,7 @@ font-size: 1.2em;
     </li>              
     <li><a class="nav-btn" href="https://www.marcwilliame.be/portfolio">Portfolio</a></li>
     <li><a class="nav-btn" href="https://www.marcwilliame.be/contactez-moi">Contact</a></li>
+              <li><a class="nav-btn" href="https://www.marcwilliame.be/portfolio">Portfolio</a></li>
               <li><a class="nav-btn-command" href="https://www.marcwilliame.be/commande-caricature-ou-portrait">Commandez en ligne</a></li>
             </ul>
           </div>
@@ -377,7 +393,7 @@ font-size: 1.2em;
 </div>
 
 <div class="form-question">
-    <p><b>4. Format de la caricature :</b> Numérique ou Imprimé ?</p>
+    <p><b>3. Format désiré pour l'illustration :</b> Numérique ou Imprimé ?</p>
     <div class="format-type-options">
         <div class="format-option" id="formatDigital" data-format-type="digital" onclick="selectFormatType('digital')">Numérique</div>
         <div class="format-option" id="formatPrinted" data-format-type="printed" onclick="selectFormatType('printed')">Imprimé</div>
@@ -386,30 +402,24 @@ font-size: 1.2em;
 
 <!-- Support fields -->
 <div class="form-question" id="supportOptions" style="display:none;">
-    <p><b>5. Support d'impression :</b> Choix du support pour l'impression de votre caricature/portrait.</p>
+    <p><b>4. Support d'impression :</b> Choix du support pour l'impression de votre illustration.</p>
     <div class="support-options">
-        <div class="option" data-support-type="canvas" onclick="selectSupport('canvas')" data-image-src="img/tableau.jpeg">Carré</div>
-        <div class="option" data-support-type="framed" onclick="selectSupport('framed')" data-image-src="img/cadre.jpeg">Paysage</div>
-        <div class="option" data-support-type="mug" onclick="selectSupport('mug')" data-image-src="img/mug.jpeg">Portrait</div>
+        <div class="option" data-support-type="framed" onclick="selectSupport('framed')"">Paysage</div>
+        <div class="option" data-support-type="mug" onclick="selectSupport('mug')"">Portrait</div>
 
     </div>
 </div>
-
-<!-- Format selection section -->
-<div class="form-question" id="formatOptions" style="display:none;">
-    <p><b>6. Dimensions:</b> Sous quelles dimenisons voulez-vous que l'illustration soit imprimée ? (Veuillez d'abord sélectionner un format)</p>
-    <div id="dynamicFormatOptions"> <!-- This div will hold the dynamic content -->
-        <!-- Dynamic format options will be appended here -->
+<!-- New Question for Additional Demand -->
+<div class="form-question">
+    <p><b>5. Précisez votre demande :</b> Si vous avez des instructions spécifiques ou des demandes particulières, veuillez les indiquer ici.</p>
+    <div class="field form-group">
+        <textarea rows="4" class="form-control custom-textarea-border" id="additionalDemand" name="additionalDemand" placeholder="Décrivez ici toute demande spécifique ou instruction supplémentaire." required></textarea>
     </div>
 </div>
-<div id="priceDisplay">
-    Prix total: <span id="totalPrice">0</span> 
-</div>
-
 <!-- Image Upload Fields -->
 <div class="form-question">
-    <p><b>3. Veuillez fournir les photos pour la caricature ou le portrait.</b><br/>
-       <em style="font-size: 0.8em;">Idéalement, veuillez fournir 2 à 3 photos dans des angles différents. Les photos seront supprimées une fois le projet terminé.</em></p>
+    <p><b>6. Veuillez fournir les photos pour la caricature ou le portrait.</b><br/>
+       <em style="font-size: 0.8em;">Si vous le désirez, n'hésitez pas à m'envoyer déjà 2 à 3 photos vous representant.</em></p>
        <div class="field form-group" style="text-align: left;">
         <label for="image1" class="custom-file-upload">Choisir une image</label>
         <input type="file" class="form-control" id="image1" name="image1" accept="image/*" style="display: none;" onchange="updateFileName('image1')">
@@ -448,14 +458,6 @@ font-size: 1.2em;
 
 </div>  
 <!-- Agreement Checkbox -->
-<br/>
-<div class="form-question">
-    <div class="field form-group">
-        <input type="checkbox" id="agreementCheckbox" name="agreementCheckbox" required>
-        <label for="agreementCheckbox"> 
-            En validant ma commande, j'accepte de régler un acompte représentant 50% de son coût total.</label>
-    </div>
-</div>
 
                 <div id="my-form-status"></div> <!-- Form status message -->
                 <div class="field btn-style text-center">
@@ -467,45 +469,20 @@ font-size: 1.2em;
         </div>
     </div>
 </div>
+</div>
     </div>
     <div class="container">
         <div class="row">
       <!-- FAQ Section Start -->
-  <div class="row wow fadeIn" data-wow-delay="0.2s">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-        <h3>Des interrogations sur votre commande ?</h3>
-        <p> Trouvez ci-dessous des réponses aux questions fréquentes ou consultez la <a href="https://www.marcwilliame.be/FAQ">page FAQ</a>. N'hésitez pas à me contacter pour toute demande spécifique. </p>
-        <div id="accordion">
-            <!-- First Question -->
-  <div class="card">
-    <div class="faq-item">
-        <div class="faq-question">Quelles seront les dimensions de mon illustration ?</div>
-        <div class="faq-answer">Votre commande numérique sera livrée en version HD, adaptée pour une impression jusqu'au format A1 avec une résolution de 300 dpi. Concernant les impressions, je propose plusieurs tailles adaptées à vos besoins.</div>
-    </div>
-    <div class="faq-item">
-        <div class="faq-question">Puis-je utiliser ma caricature ou mon portrait comme je le souhaite ?</div>
-        <div class="faq-answer">Absolument. Une fois votre caricature ou portrait finalisé, vous aurez un accès à vie à l'œuvre. Vous pourrez la faire réimprimer dans n'importe quel format ou dimension selon vos besoins.</div>
-    </div>
 
-    <div class="faq-item">
-        <div class="faq-question">Que faire si je n’aime pas ma caricature ou mon portrait ?</div>
-        <div class="faq-answer">Si vous avez des remarques sur une caricature ou un portrait, des révisions sont possibles. Chaque commande inclut trois modifications mineures. Notez que les révisions peuvent ajouter trois jours aux délais de livraison.</div>
+    <div class="container-form">
+        <h2>Quelles sont les étapes suivantes ?</h2>
+        <br/>
+        <p style="text-align: left">1. Une fois votre demande envoyée, je reviens vers vous <b>dans les 24h</b> avec un mail de confirmation. <br> <em style="font-size: 0.8em;">Si nécessaire, des infos supplémentaires vous seront demandées dans ce même mail.</em></p>
+        <p style="text-align: left">2. La demande validée, un <b>acompte de 50%</b> vous sera demandé afin de débuter le travail. <br> <em style="font-size: 0.8em;">Le délai de création standard est de 15 jours ouvrables pour une caricature ou un portrait. Le délai de livraison pour une illustration peut être de 3 semaines (dépendant de la demande). Si la demande est urgente, veuillez dès lors me recontacter afin de discuter de la faisabilité à contact@marcwilliame.be.</em></p>
+        <p style="text-align: left">3. Une <b>première version</b> de votre illustration vous sera envoyée via un lien securisé.</p>
+        <p style="text-align: left">4. Votre illustration sera envoyée pour <b>impression et livraison</b> (si inclus dans la demande) <br/><em style="font-size: 0.8em;">Le délai de livraison est de 4 à 5 jours ouvrables</em></p>
     </div>
-    <div class="faq-item">
-        <div class="faq-question">Comment ma caricature sera-t-elle livrée ?</div>
-        <div class="faq-answer">Pour toute question ou demande concernant votre commande, envoyez-moi un email à contact@marcwilliame.be en utilisant l'adresse email avec laquelle vous avez passé la commande.</div>
-    </div>
-    <div class="faq-item">
-        <div class="faq-question">Y a-t-il des frais pour les modifications apportées après la passation de la commande ?</div>
-        <div class="faq-answer">"Les modifications apportées à votre commande doivent rester dans les limites établies. Pour des changements au-delà de ces limites, un devis supplémentaire vous sera proposé. Il est essentiel de spécifier avec précision vos attentes dans les instructions initiales. Notez bien que, une fois la caricature approuvée pour l'impression, il ne sera plus possible d'y apporter des modifications.
-            "</div>
-    </div>
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-            Vous pouvez passer une commande en me contactant via le formulaire de contact sur cette page ou par email à contact@marcwilliame.com.
-        </div>
-    </div>
-  </div>
            
   </div>
   
@@ -519,283 +496,283 @@ font-size: 1.2em;
     <br/><br/>    <br/>
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all the FAQ question elements
-    var faqQuestions = document.querySelectorAll('.faq-question');
-
-    // Add a click event listener to each question
-    faqQuestions.forEach(function(question) {
-        question.addEventListener('click', function() {
-            // Toggle the display of the corresponding answer
-            var answer = this.nextElementSibling;
-            if (answer.style.display === 'block') {
-                answer.style.display = 'none';
-            } else {
-                answer.style.display = 'block';
-            }
-        });
-    });
-});
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Event listeners for color choices and additional options
-            document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
-            document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-            document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
-            document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
-            document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
-            document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+            // Get all the FAQ question elements
+            var faqQuestions = document.querySelectorAll('.faq-question');
         
-            // Event listeners for format type selection
-            document.querySelectorAll('.format-type-options .format-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    selectFormatType(option.getAttribute('data-format-type'));
+            // Add a click event listener to each question
+            faqQuestions.forEach(function(question) {
+                question.addEventListener('click', function() {
+                    // Toggle the display of the corresponding answer
+                    var answer = this.nextElementSibling;
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
                 });
             });
-        
-            // Hover effect for support options
-            var supportOptions = document.getElementsByClassName('option');
-            for (var i = 0; i < supportOptions.length; i++) {
-                supportOptions[i].addEventListener('mouseenter', showPopupImage);
-                supportOptions[i].addEventListener('mouseleave', hidePopupImage);
-            }
-        
-            // Initialize the format type and price display
-            selectFormatType('digital');
         });
         
-        // Global variables
-        var selectedFormatType = 'digital';
-        var selectedSupport = '';
-        var selectedFormat = '';
-        const prices = {
-            canvas: {"20x30cm": 16, "30x30cm": 13, "30x40cm": 23, "40x60cm": 29, "50x70cm": 36, "60x90cm": 42},
-            framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
-            mug: {OneSize: 7},
-            keychain: {"A4": 22, "A5": 16}
-        };
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Event listeners for color choices and additional options
+                    document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
+                    document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
+                    document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
+                    document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+                    document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+                    document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+                
+                    // Event listeners for format type selection
+                    document.querySelectorAll('.format-type-options .format-option').forEach(option => {
+                        option.addEventListener('click', function() {
+                            selectFormatType(option.getAttribute('data-format-type'));
+                        });
+                    });
+                
+                    // Hover effect for support options
+                    var supportOptions = document.getElementsByClassName('option');
+                    for (var i = 0; i < supportOptions.length; i++) {
+                        supportOptions[i].addEventListener('mouseenter', showPopupImage);
+                        supportOptions[i].addEventListener('mouseleave', hidePopupImage);
+                    }
+                
+                    // Initialize the format type and price display
+                    selectFormatType('digital');
+                });
+                
+                // Global variables
+                var selectedFormatType = 'digital';
+                var selectedSupport = '';
+                var selectedFormat = '';
+                const prices = {
+                    canvas: {"20x30cm": 16, "30x30cm": 13, "30x40cm": 23, "40x60cm": 29, "50x70cm": 36, "60x90cm": 42},
+                    framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
+                    mug: {OneSize: 7},
+                    keychain: {"A4": 22, "A5": 16}
+                };
+                
         
-
-        // Adjust the selectNumberOfPeople function
-function selectNumberOfPeople(number) {
-    document.getElementById('numberOfPeople').value = number;
-    // Highlight the selected number of people
-    var personOptions = document.getElementsByClassName('person-option');
-    for (var i = 0; i < personOptions.length; i++) {
-        personOptions[i].classList.remove('selected');
-    }
-    document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
-    calculateAndDisplayPrice();
-}
-
-// Modify the selectFormatType function
-function selectFormatType(formatType) {
-    selectedFormatType = formatType;
-    // Highlight the selected format type
-    var formatOptions = document.querySelectorAll('.format-type-options .format-option');
-    formatOptions.forEach(function(element) {
-        element.classList.remove('selected');
-    });
-    document.querySelector('.format-type-options .format-option[data-format-type="' + formatType + '"]').classList.add('selected');
-
-       // Show or hide the address fields
-       var addressFields = document.getElementById('addressFields');
-    if (formatType === 'printed') {
-        addressFields.style.display = 'block';
-    } else {
-        addressFields.style.display = 'none';
-    }
-
-    // Show or hide the support and format options
-    const supportOptions = document.getElementById('supportOptions'); // Ensure this ID matches your HTML
-    const formatOptionsDiv = document.getElementById('formatOptions'); // Ensure this ID matches your HTML
-    if (selectedFormatType === 'printed') {
-        supportOptions.style.display = 'block';
-        formatOptionsDiv.style.display = 'block';
-    } else {
-        supportOptions.style.display = 'none';
-        formatOptionsDiv.style.display = 'none';
-        // Reset selected support and format when switching to digital
-        selectedSupport = '';
-        selectedFormat = '';
-        document.getElementById('hiddenSelectedSupport').value = '';
-        document.getElementById('hiddenSelectedFormat').value = '';
-    }
-    calculateAndDisplayPrice();
-}
-
-// Call selectFormatType with 'digital' initially to hide printing options
-selectFormatType('digital');
-
-function togglePrintingOptions() {
-    const printingOptions = document.getElementById('printingOptions');
-    printingOptions.style.display = selectedFormatType === 'printed' ? 'block' : 'none';
-}
-
-        
-function calculateAndDisplayPrice() {
-    const shippingCost = 5; // Shipping cost
-    let totalPrice = 60; // Base price for Noir et Blanc
-
-    // Add prices for selected color choice
-    if (document.getElementById('colorColor').checked) {
-        totalPrice += 30; // Additional cost for color
-    }
-
-    // Add additional cost for multiple people
-    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
-    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
-
-    // Add prices for selected support and format
-    if (selectedSupport && selectedFormat) {
-        totalPrice += prices[selectedSupport][selectedFormat] || 0;
-    }
-        
-            // Add prices for the new options
-            const backgroundOption = document.querySelector('input[name="background"]:checked').value;
-            if (backgroundOption === 'complex') {
-                totalPrice += 30;
+                // Adjust the selectNumberOfPeople function
+        function selectNumberOfPeople(number) {
+            document.getElementById('numberOfPeople').value = number;
+            // Highlight the selected number of people
+            var personOptions = document.getElementsByClassName('person-option');
+            for (var i = 0; i < personOptions.length; i++) {
+                personOptions[i].classList.remove('selected');
             }
-            const propsOption = document.querySelector('input[name="props"]:checked').value;
-            if (propsOption === 'extra') {
-                totalPrice += 20;
+            document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
+            calculateAndDisplayPrice();
+        }
+        
+        // Modify the selectFormatType function
+        function selectFormatType(formatType) {
+            selectedFormatType = formatType;
+            // Highlight the selected format type
+            var formatOptions = document.querySelectorAll('.format-type-options .format-option');
+            formatOptions.forEach(function(element) {
+                element.classList.remove('selected');
+            });
+            document.querySelector('.format-type-options .format-option[data-format-type="' + formatType + '"]').classList.add('selected');
+        
+               // Show or hide the address fields
+               var addressFields = document.getElementById('addressFields');
+            if (formatType === 'printed') {
+                addressFields.style.display = 'block';
+            } else {
+                addressFields.style.display = 'none';
             }
-            const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
-            if (deliveryTimeOption === 'rush') {
-                totalPrice += 40;
-}
-
-// Add shipping cost
-totalPrice += shippingCost;
-
-// Update the total price display
-document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
-document.getElementById('totalPriceInput').value = totalPrice;
-}
-
-// Supporting functions for UI interactions
-function showPopupImage(event) {
-    var target = event.currentTarget; // The .option element
-    var imageSrc = target.getAttribute('data-image-src');
-
-    if (imageSrc) {
-        var existingPopup = document.querySelector('.popup-image');
-        if (existingPopup) {
-            existingPopup.remove(); // Remove any existing popups
+        
+            // Show or hide the support and format options
+            const supportOptions = document.getElementById('supportOptions'); // Ensure this ID matches your HTML
+            const formatOptionsDiv = document.getElementById('formatOptions'); // Ensure this ID matches your HTML
+            if (selectedFormatType === 'printed') {
+                supportOptions.style.display = 'block';
+                formatOptionsDiv.style.display = 'block';
+            } else {
+                supportOptions.style.display = 'none';
+                formatOptionsDiv.style.display = 'none';
+                // Reset selected support and format when switching to digital
+                selectedSupport = '';
+                selectedFormat = '';
+                document.getElementById('hiddenSelectedSupport').value = '';
+                document.getElementById('hiddenSelectedFormat').value = '';
+            }
+            calculateAndDisplayPrice();
         }
-
-        var popupImage = document.createElement('img');
-        popupImage.src = imageSrc;
-        popupImage.className = 'popup-image';
-
-        // Append the popup image to the .option element
-        target.appendChild(popupImage);
-
-        // Adjust the position of the popup image
-        popupImage.style.top = -popupImage.offsetHeight + 'px'; // Position above the button
-        popupImage.style.left = (target.offsetWidth / 2 - popupImage.offsetWidth / 2) + 'px';
-    }
-}
-
-function hidePopupImage() {
-    var existingPopup = document.querySelector('.popup-image');
-    if (existingPopup) {
-        existingPopup.parentNode.removeChild(existingPopup);
-    }
-}
-
-
-function selectSupport(support) {
-    selectedSupport = support;
-    document.getElementById('hiddenSelectedSupport').value = support;
-    
-    // Highlight the selected support
-    var supportOptions = document.getElementsByClassName('support-options')[0].getElementsByClassName('option');
-    for (var i = 0; i < supportOptions.length; i++) {
-        supportOptions[i].classList.remove('selected');
-        if (supportOptions[i].getAttribute('data-support-type') === support) {
-            supportOptions[i].classList.add('selected');
+        
+        // Call selectFormatType with 'digital' initially to hide printing options
+        selectFormatType('digital');
+        
+        function togglePrintingOptions() {
+            const printingOptions = document.getElementById('printingOptions');
+            printingOptions.style.display = selectedFormatType === 'printed' ? 'block' : 'none';
         }
-    }
-updateFormatOptions(support);
-}
-
-function updateFormatOptions(support) {
-    var dynamicFormatOptions = document.getElementById('dynamicFormatOptions');
-    dynamicFormatOptions.innerHTML ='';
-
-    var formats = prices[support];
-if (formats) {
-    for (var format in formats) {
-        var optionDiv = document.createElement('div');
-        optionDiv.className = 'format-option';
-        optionDiv.textContent = format;
-
-        // Use an immediately invoked function expression (IIFE) to create a new scope
-        (function(format) {
-            optionDiv.onclick = function() { selectFormat(format); };
-        })(format);
-
-        dynamicFormatOptions.appendChild(optionDiv);
-    }
-}
-
-
-}
-
-function selectFormat(format) {
-selectedFormat = format;
-document.getElementById('hiddenSelectedFormat').value = format;
-
-   // Highlight the selected format
-   var formatOptions = document.getElementById('dynamicFormatOptions').getElementsByClassName('format-option');
-    for (var i = 0; i < formatOptions.length; i++) {
-        formatOptions[i].classList.remove('selected');
-        if (formatOptions[i].textContent === format) {
-            formatOptions[i].classList.add('selected');
+        
+                
+        function calculateAndDisplayPrice() {
+            const shippingCost = 5; // Shipping cost
+            let totalPrice = 60; // Base price for Noir et Blanc
+        
+            // Add prices for selected color choice
+            if (document.getElementById('colorColor').checked) {
+                totalPrice += 30; // Additional cost for color
+            }
+        
+            // Add additional cost for multiple people
+            let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
+            totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
+        
+            // Add prices for selected support and format
+            if (selectedSupport && selectedFormat) {
+                totalPrice += prices[selectedSupport][selectedFormat] || 0;
+            }
+                
+                    // Add prices for the new options
+                    const backgroundOption = document.querySelector('input[name="background"]:checked').value;
+                    if (backgroundOption === 'complex') {
+                        totalPrice += 30;
+                    }
+                    const propsOption = document.querySelector('input[name="props"]:checked').value;
+                    if (propsOption === 'extra') {
+                        totalPrice += 20;
+                    }
+                    const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
+                    if (deliveryTimeOption === 'rush') {
+                        totalPrice += 40;
         }
-    }
-calculateAndDisplayPrice();
-}
-
-function updateFileName(inputId) {
-var inputElement = document.getElementById(inputId);
-var fileNameSpan = document.getElementById('file-chosen-' + inputId);
-fileNameSpan.textContent = inputElement.files.length > 0 ? inputElement.files[0].name : "Pas de fichier choisi";
-}
-
-// Form submission logic
-var form = document.getElementById("caricature-order-form");
-form.addEventListener("submit", async function(event) {
-event.preventDefault();
-var status = document.getElementById("my-form-status");
-var data = new FormData(event.target);
-data.append('totalPrice', document.getElementById('totalPriceInput').value);
-
-try {
-    const response = await fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {'Accept': 'application/json'}
-    });
-
-    if (response.ok) {
-        status.innerHTML = "Merci pour votre soumission !";
-        form.reset();
-        window.location.href = "merci.html?" + new URLSearchParams(data).toString();
-    } else {
-        const errorData = await response.json();
-        status.innerHTML = errorData["errors"].map(error => error["message"]).join(", ");
-    }
-} catch (error) {
-    status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
-}
-});
-function changeMainImage(newImageSrc) {
-    document.getElementById('mainImage').src = 'img/' + newImageSrc;
-}
-
-</script>
+        
+        // Add shipping cost
+        totalPrice += shippingCost;
+        
+        // Update the total price display
+        document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
+        document.getElementById('totalPriceInput').value = totalPrice;
+        }
+        
+        // Supporting functions for UI interactions
+        function showPopupImage(event) {
+            var target = event.currentTarget; // The .option element
+            var imageSrc = target.getAttribute('data-image-src');
+        
+            if (imageSrc) {
+                var existingPopup = document.querySelector('.popup-image');
+                if (existingPopup) {
+                    existingPopup.remove(); // Remove any existing popups
+                }
+        
+                var popupImage = document.createElement('img');
+                popupImage.src = imageSrc;
+                popupImage.className = 'popup-image';
+        
+                // Append the popup image to the .option element
+                target.appendChild(popupImage);
+        
+                // Adjust the position of the popup image
+                popupImage.style.top = -popupImage.offsetHeight + 'px'; // Position above the button
+                popupImage.style.left = (target.offsetWidth / 2 - popupImage.offsetWidth / 2) + 'px';
+            }
+        }
+        
+        function hidePopupImage() {
+            var existingPopup = document.querySelector('.popup-image');
+            if (existingPopup) {
+                existingPopup.parentNode.removeChild(existingPopup);
+            }
+        }
+        
+        
+        function selectSupport(support) {
+            selectedSupport = support;
+            document.getElementById('hiddenSelectedSupport').value = support;
+            
+            // Highlight the selected support
+            var supportOptions = document.getElementsByClassName('support-options')[0].getElementsByClassName('option');
+            for (var i = 0; i < supportOptions.length; i++) {
+                supportOptions[i].classList.remove('selected');
+                if (supportOptions[i].getAttribute('data-support-type') === support) {
+                    supportOptions[i].classList.add('selected');
+                }
+            }
+        updateFormatOptions(support);
+        }
+        
+        function updateFormatOptions(support) {
+            var dynamicFormatOptions = document.getElementById('dynamicFormatOptions');
+            dynamicFormatOptions.innerHTML ='';
+        
+            var formats = prices[support];
+        if (formats) {
+            for (var format in formats) {
+                var optionDiv = document.createElement('div');
+                optionDiv.className = 'format-option';
+                optionDiv.textContent = format;
+        
+                // Use an immediately invoked function expression (IIFE) to create a new scope
+                (function(format) {
+                    optionDiv.onclick = function() { selectFormat(format); };
+                })(format);
+        
+                dynamicFormatOptions.appendChild(optionDiv);
+            }
+        }
+        
+        
+        }
+        
+        function selectFormat(format) {
+        selectedFormat = format;
+        document.getElementById('hiddenSelectedFormat').value = format;
+        
+           // Highlight the selected format
+           var formatOptions = document.getElementById('dynamicFormatOptions').getElementsByClassName('format-option');
+            for (var i = 0; i < formatOptions.length; i++) {
+                formatOptions[i].classList.remove('selected');
+                if (formatOptions[i].textContent === format) {
+                    formatOptions[i].classList.add('selected');
+                }
+            }
+        calculateAndDisplayPrice();
+        }
+        
+        function updateFileName(inputId) {
+        var inputElement = document.getElementById(inputId);
+        var fileNameSpan = document.getElementById('file-chosen-' + inputId);
+        fileNameSpan.textContent = inputElement.files.length > 0 ? inputElement.files[0].name : "Pas de fichier choisi";
+        }
+        
+        // Form submission logic
+        var form = document.getElementById("caricature-order-form");
+        form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        data.append('totalPrice', document.getElementById('totalPriceInput').value);
+        
+        try {
+            const response = await fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {'Accept': 'application/json'}
+            });
+        
+            if (response.ok) {
+                status.innerHTML = "Merci pour votre soumission !";
+                form.reset();
+                window.location.href = "merci-pour-votre-demande.html?" + new URLSearchParams(data).toString();
+            } else {
+                const errorData = await response.json();
+                status.innerHTML = errorData["errors"].map(error => error["message"]).join(", ");
+            }
+        } catch (error) {
+            status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
+        }
+        });
+        function changeMainImage(newImageSrc) {
+            document.getElementById('mainImage').src = 'img/' + newImageSrc;
+        }
+        
+        </script>
     
 </div>
 </div><!-- row end -->
