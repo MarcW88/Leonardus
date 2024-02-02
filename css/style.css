@@ -734,6 +734,26 @@ button:hover {
 	color: #4D5168;
 }
 
+.content-wrapper {
+	padding-top: 200px; /* Adjust this value as needed */
+}
+.faq-container {
+	margin: 20px;
+	padding: 10px;
+}
+.faq-question {
+	font-weight: bold;
+	cursor: pointer;
+	padding: 10px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+}
+.faq-answer {
+	display: none;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-top: none;
+}
 
 /*----------------------------------------*/
 /*  10.  Contact Area
@@ -977,6 +997,319 @@ footer p {
 .work-items {
 	margin-top: 0px;
 }
+
+/*----------------------------------------*/
+/*  16.  Cart
+/*----------------------------------------*/
+.cart-details {
+    text-align: left; /* Alignement à gauche */
+    margin-left: 20px; /* Ajustement du marging pour l'alignement */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Espacement entre les éléments */
+}
+
+.cart-item strong {
+    margin-right: 10px; /* Espace entre le nom de l'élément et sa valeur */
+}
+
+.cart-price {
+    font-weight: bold;
+    color: #007BFF; /* Ou toute autre couleur souhaitée */
+}
+
+.container-form {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .caricature-options .option, .support-options .option, .number-of-people-options .person-option, .format-type-options .format-option, #dynamicFormatOptions .format-option {
+        flex-basis: 100%;
+    }
+}
+
+/* General Formatting and Radio Button Styles */
+input[type="radio"] {
+width: 15px;
+height: 15px;
+margin-right: 5px;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background-color: #fff;
+border: 2px solid #c1903e;
+border-radius: 50%;
+cursor: pointer;
+vertical-align: middle;
+position: relative;
+}
+
+input[type="radio"]:checked {
+background-color: #c1903e;
+}
+
+input[type="radio"]:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 3px;
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background: white;
+}
+/* Styles personnalisés pour le formulaire PayPal */
+.paypal-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles pour le bouton PayPal */
+.paypal-form input[type="image"] {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Styles personnalisés pour le bouton PayPal */
+.paypal-button {
+    padding: 15px 30px; /* Vous pouvez ajuster la taille du bouton selon vos besoins */
+    font-size: 1.2em;
+    background-color: #007BFF; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none;
+    cursor: pointer;
+}
+
+/* Effet de survol pour le bouton PayPal */
+.paypal-button:hover {
+    opacity: 0.8;
+}
+.payment-options {
+    margin-bottom: 20px; /* Espacement avec le résumé du panier */
+    padding: 15px; /* Padding interne pour l'espace autour du contenu */
+}
+
+.payment-options h3 {
+    margin-bottom: 15px; /* Espacement sous le titre */
+}
+
+.form-check {
+    margin-bottom: 10px; /* Espacement entre les options de paiement */
+}
+
+#postalAddressBox {
+    margin-top: 15px; /* Espacement au-dessus de la boîte d'adresse postale */
+}
+
+#postalAddressBox h4 {
+    margin-bottom: 10px; /* Espacement sous le titre de la boîte d'adresse */
+}
+
+#postalAddress {
+    margin-top: 5px; /* Espacement au-dessus du champ d'adresse */
+}
+
+
+.cart-summary p {
+    font-size: 30px; /* Taille de police plus grande pour le prix */
+    background-color: #0fb6ac; /* Fond vert */
+    color: white; /* Texte blanc */
+    padding: 10px; /* Padding pour un peu d'espace autour du texte */
+}
+#postalAddressBox {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#postalAddressBox .form-group {
+    margin-bottom: 15px;
+}
+
+#postalAddressBox label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#postalAddressBox .form-control {
+    width: 100%; /* Ajustez selon la largeur désirée */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#paypalButtonContainer a.btn {
+    margin-left:30px;
+    font-size: 16px;
+    background-color: #007bff; /* Bleu PayPal ou choisissez la couleur que vous préférez */
+    color: white; /* Texte blanc pour contraster avec le fond bleu */
+    border: 0; /* Supprime la bordure du bouton */
+    border-radius: 0; /* Supprime les bords arrondis du bouton */
+}
+
+/*----------------------------------------*/
+/*  17.  Commande caricature/portrait/illustration
+/*----------------------------------------*/
+.selected{
+    background-color: #c1903e; /* Your highlight color */
+    color: white;
+    border-color: #c1903e;
+}
+.support-options .option {
+    position: relative;
+}
+
+/* Flex Container for Options */
+.caricature-options, .support-options, .number-of-people-options, .format-type-options, #dynamicFormatOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Option Styles */
+.caricature-options .option, .support-options .option, .number-of-people-options .person-option, .format-type-options .format-option, #dynamicFormatOptions .format-option {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: center;
+    cursor: pointer;
+    margin: 5px;
+    flex-basis: 48%;
+}
+
+/* Highlight Selected Options */
+.caricature-options .option.selected, .support-options .option.selected, .number-of-people-options .person-option.selected, .format-type-options .format-option.selected, #dynamicFormatOptions .format-option.selected {
+    background-color: #c1903e;
+    color: white;
+    border-color: #c1903e;
+}
+
+/* Price Display */
+#priceDisplay {
+    border: 2px solid #0fb6ac;
+    background-color: #0fb6ac;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Popup Image Style */
+
+.popup {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.option:hover .popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Example styles for the button */
+.button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Form Question Styles */
+.form-question {
+    text-align: left;
+    margin-bottom: 10px;
+}
+.form-question p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+/* Styles for Options Labels */
+.services-options label, .background-options label, .props-options label, .delivery-time-options label {
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-left: 5px;
+    margin-bottom: 0;
+}
+
+/* Custom File Upload Button Style */
+.custom-file-upload {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* File Name Display Style */
+#file-chosen-image1, #file-chosen-image2, #file-chosen-image3 {
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .caricature-options .option, .support-options .option, .number-of-people-options .person-option, .format-type-options .format-option, #dynamicFormatOptions .format-option {
+        flex-basis: 100%;
+    }
+}
+/* Style for the Last Phrase of the Form */
+.form-question label[for="agreementCheckbox"] {
+font-size: 0.8em;
+font-weight: normal;
+}
+
+/* Style for the 'Commandez' Button */
+.field.btn-style button {
+padding: 15px 30px;
+font-size: 1.2em;
+}
+
+.small-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumbnail {
+    width: 130px; /* Adjust the width as needed */
+    height: auto;
+    cursor: pointer;
+    margin: 5px;
+}
+
+/*----------------------------------------*/
+/*  18.  Commande caricature/portrait/illustration
+/*----------------------------------------*/
+
 /*----------------------------------------*/
 /*  End Of Style
 /*----------------------------------------*/
