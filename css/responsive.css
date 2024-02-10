@@ -126,6 +126,12 @@
   .navbar-header {
   	padding: 0px 30px;
   }
+    .nav-btn-command {
+        padding: 15px 30px; /* Increase padding */
+        font-size: 16px; /* Increase font size for better readability */
+        width: 100%; /* Optional: make the button full width */
+        box-sizing: border-box; /* To ensure padding does not increase the button beyond 100% width */
+    }
   .le-navbar {
     background-color: rgb(255,255,255,1);
     height: 80px;
