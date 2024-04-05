@@ -238,17 +238,19 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
         </div>
     </div>
 </div>
-<!-- Question about multiple people -->
-<!-- Number of people selection -->
+<!-- New "Style de la caricature" section -->
 <div class="form-question">
-    <p><b>2. Nombre de personnes :</b> Combien de personnes doivent être représentées?</p>
-    <div class="number-of-people-options">
-        <div class="person-option" onclick="selectNumberOfPeople(1)">1</div>
-        <div class="person-option" onclick="selectNumberOfPeople(2)">2</div>
-        <div class="person-option" onclick="selectNumberOfPeople(3)">3</div>
-        <div class="person-option" onclick="selectNumberOfPeople(4)">4</div>
+    <p><b>2. Style de la caricature :</b> réaliste ou cartoon ?</p>
+    <div class="services-options">
+        <div>
+            <input type="radio" id="styleRealistic" name="caricatureStyle" value="Realistic">
+            <label for="styleRealistic">Réaliste</label>
+        </div>
+        <div>
+            <input type="radio" id="styleCartoon" name="caricatureStyle" value="Cartoon">
+            <label for="styleCartoon">Cartoon</label>
+        </div>
     </div>
-    <input type="hidden" id="numberOfPeople" name="numberOfPeople" value="1">
 </div>
 
 <!-- Image Upload Fields -->
@@ -508,7 +510,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Event listeners for color choices and additional options
             document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
             document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-            document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
             document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
             document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
             document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
@@ -542,18 +543,6 @@ document.addEventListener('DOMContentLoaded', function() {
             keychain: {"A4": 22, "A5": 16}
         };
         
-
-        // Adjust the selectNumberOfPeople function
-function selectNumberOfPeople(number) {
-    document.getElementById('numberOfPeople').value = number;
-    // Highlight the selected number of people
-    var personOptions = document.getElementsByClassName('person-option');
-    for (var i = 0; i < personOptions.length; i++) {
-        personOptions[i].classList.remove('selected');
-    }
-    document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
-    calculateAndDisplayPrice();
-}
 
 // Modify the selectFormatType function
 function selectFormatType(formatType) {
@@ -608,10 +597,6 @@ function calculateAndDisplayPrice() {
     if (document.getElementById('colorColor').checked) {
         totalPrice += 30; // Additional cost for color
     }
-
-    // Add additional cost for multiple people
-    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
-    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
 
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
