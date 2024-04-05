@@ -194,7 +194,7 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
               <h1> Commandez une caricature de votre chien</h1>
               <br/>
-<p>Laissez-moi capturer l'esprit joyeux de votre chien dans une caricature personnalisée qui rayonne de bonheur et d'originalité. </p><br/>    
+<p>Laissez-moi capturer l'esprit joyeux de votre chien dans une <a href="https://www.marcwilliame.be/caricature-personnalisee">caricature personnalisée</a> qui rayonne de bonheur et d'originalité. </p><br/>    
 <div class="title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
     <h2>Une commande simple et rapide</h2>
     <em>Remplissez le formulaire pour commander votre caricature, votre portrait ou votre illustration personnalisée.</em>
@@ -236,17 +236,19 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
         </div>
     </div>
 </div>
-<!-- Question about multiple people -->
-<!-- Number of people selection -->
+<!-- New "Style de la caricature" section -->
 <div class="form-question">
-    <p><b>2. Nombre de personnes :</b> Combien de personnes doivent être représentées?</p>
-    <div class="number-of-people-options">
-        <div class="person-option" onclick="selectNumberOfPeople(1)">1</div>
-        <div class="person-option" onclick="selectNumberOfPeople(2)">2</div>
-        <div class="person-option" onclick="selectNumberOfPeople(3)">3</div>
-        <div class="person-option" onclick="selectNumberOfPeople(4)">4</div>
+    <p><b>2. Style de la caricature :</b> réaliste ou cartoon ?</p>
+    <div class="services-options">
+        <div>
+            <input type="radio" id="styleRealistic" name="caricatureStyle" value="Realistic">
+            <label for="styleRealistic">Réaliste</label>
+        </div>
+        <div>
+            <input type="radio" id="styleCartoon" name="caricatureStyle" value="Cartoon">
+            <label for="styleCartoon">Cartoon</label>
+        </div>
     </div>
-    <input type="hidden" id="numberOfPeople" name="numberOfPeople" value="1">
 </div>
 
 <!-- Image Upload Fields -->
@@ -392,8 +394,8 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
         <div class="row">
     <div class="row wow fadeIn" data-wow-delay="0.2s">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-<p>Je prends soin de chaque détail, des accessoires adorables à sa posture pleine de vie, en passant par le choix d'un arrière-plan qui reflète son individualité unique. Je vous propose également des options d'impression sur des matériaux de haute qualité.</p>
-<p>Si vous êtes séduit par l'idée, il vous suffit de remplire le formulaire qui vous guide à travers les options de personnalisation : style, couleur, arrière-plan, et plus encore. Et pour ceux qui désirent partager cette joie, je propose des impressions sur une variété de produits, parfaits pour chérir ou offrir ces créations artistiques.</p></div>
+<p>Je prends soin de chaque détail, des accessoires adorables à sa posture pleine de vie, en passant par le choix d'un arrière-plan qui reflète son individualité unique. </p>
+<p>Si vous êtes séduit par l'idée, il vous suffit de remplire le formulaire qui vous guide à travers les options de personnalisation : style, couleur, arrière-plan, et plus encore. Et pour ceux qui désirent partager cette joie, il est possible de <a href="https://www.marcwilliame.be/commande-caricature">commander votre caricature</a> en le faisant imprimer sur une variété de produits, parfaits pour chérir ou offrir ces créations artistiques.</p></div>
 </div>
 
     <div class="container">
@@ -502,7 +504,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Event listeners for color choices and additional options
             document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
             document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-            document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
             document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
             document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
             document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
@@ -534,20 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
             framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
             mug: {OneSize: 7},
             keychain: {"A4": 22, "A5": 16}
-        };
-        
-
-        // Adjust the selectNumberOfPeople function
-function selectNumberOfPeople(number) {
-    document.getElementById('numberOfPeople').value = number;
-    // Highlight the selected number of people
-    var personOptions = document.getElementsByClassName('person-option');
-    for (var i = 0; i < personOptions.length; i++) {
-        personOptions[i].classList.remove('selected');
-    }
-    document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
-    calculateAndDisplayPrice();
-}
+        };    
 
 // Modify the selectFormatType function
 function selectFormatType(formatType) {
@@ -602,10 +590,6 @@ function calculateAndDisplayPrice() {
     if (document.getElementById('colorColor').checked) {
         totalPrice += 30; // Additional cost for color
     }
-
-    // Add additional cost for multiple people
-    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
-    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
 
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
