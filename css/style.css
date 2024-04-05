@@ -1584,8 +1584,9 @@ font-size: 1.2em;
 
 .thumbnail {
     flex: 0 0 auto;
-    width: 130px; /* Largeur pour les écrans plus grands */
-    height: auto;
+    width: 140px; /* Or any width */
+    height: 140px; /* Adjust height to maintain the aspect ratio */
+    object-fit: cover; /* Cover the container without losing aspect ratio */
     cursor: pointer;
     margin: 5px;
 }
