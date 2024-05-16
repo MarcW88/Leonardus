@@ -487,7 +487,7 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
   </div>
     <br/><br/>    <br/>
 
- <script>
+<script>
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get all the FAQ question elements
@@ -511,7 +511,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners for color choices and additional options
     document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
     document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-    document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
     document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
     document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
     document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
@@ -547,14 +546,7 @@ const prices = {
 
 // Adjust the selectNumberOfPeople function
 function selectNumberOfPeople(number) {
-    document.getElementById('numberOfPeople').value = number;
-    // Highlight the selected number of people
-    var personOptions = document.getElementsByClassName('person-option');
-    for (var i = 0; i < personOptions.length; i++) {
-        personOptions[i].classList.remove('selected');
-    }
-    document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
-    calculateAndDisplayPrice();
+    // This function is no longer needed for this specific page as it's about couple caricatures
 }
 
 // Modify the selectFormatType function
@@ -609,10 +601,6 @@ function calculateAndDisplayPrice() {
     if (document.getElementById('colorColor').checked) {
         totalPrice += 30; // Additional cost for color
     }
-
-    // Add additional cost for multiple people
-    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
-    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
 
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
