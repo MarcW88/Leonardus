@@ -490,7 +490,8 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
   </div>
     <br/><br/>    <br/>
 
-    <script>
+<script>
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get all the FAQ question elements
     var faqQuestions = document.querySelectorAll('.faq-question');
@@ -509,43 +510,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Event listeners for color choices and additional options
-            document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
-            document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-            document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
-            document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
-            document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
-        
-            // Event listeners for format type selection
-            document.querySelectorAll('.format-type-options .format-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    selectFormatType(option.getAttribute('data-format-type'));
-                });
-            });
-        
-            // Hover effect for support options
-            var supportOptions = document.getElementsByClassName('option');
-            for (var i = 0; i < supportOptions.length; i++) {
-                supportOptions[i].addEventListener('mouseenter', showPopupImage);
-                supportOptions[i].addEventListener('mouseleave', hidePopupImage);
-            }
-        
-            // Initialize the format type and price display
-            selectFormatType('digital');
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listeners for color choices and additional options
+    document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
+    document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
+    document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
+    document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+    document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+    document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
+
+    // Event listeners for format type selection
+    document.querySelectorAll('.format-type-options .format-option').forEach(option => {
+        option.addEventListener('click', function() {
+            selectFormatType(option.getAttribute('data-format-type'));
         });
-        
-        // Global variables
-        var selectedFormatType = 'digital';
-        var selectedSupport = '';
-        var selectedFormat = '';
-        const prices = {
-            canvas: {"20x30cm": 16, "30x30cm": 13, "30x40cm": 23, "40x60cm": 29, "50x70cm": 36, "60x90cm": 42},
-            framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
-            mug: {OneSize: 7},
-            keychain: {"A4": 22, "A5": 16}
-        };
-    
+    });
+
+    // Hover effect for support options
+    var supportOptions = document.getElementsByClassName('option');
+    for (var i = 0; i < supportOptions.length; i++) {
+        supportOptions[i].addEventListener('mouseenter', showPopupImage);
+        supportOptions[i].addEventListener('mouseleave', hidePopupImage);
+    }
+
+    // Initialize the format type and price display
+    selectFormatType('digital');
+});
+
+// Global variables
+var selectedFormatType = 'digital';
+var selectedSupport = '';
+var selectedFormat = '';
+const prices = {
+    canvas: {"20x30cm": 16, "30x30cm": 13, "30x40cm": 23, "40x60cm": 29, "50x70cm": 36, "60x90cm": 42},
+    framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
+    mug: {OneSize: 7},
+    keychain: {"A4": 22, "A5": 16}
+};
+
+// Adjust the selectNumberOfPeople function
+function selectNumberOfPeople(number) {
+    document.getElementById('numberOfPeople').value = number;
+    // Highlight the selected number of people
+    var personOptions = document.getElementsByClassName('person-option');
+    for (var i = 0; i < personOptions.length; i++) {
+        personOptions[i].classList.remove('selected');
+    }
+    document.getElementsByClassName('person-option')[number - 1].classList.add('selected');
+    calculateAndDisplayPrice();
+}
 
 // Modify the selectFormatType function
 function selectFormatType(formatType) {
@@ -557,8 +570,8 @@ function selectFormatType(formatType) {
     });
     document.querySelector('.format-type-options .format-option[data-format-type="' + formatType + '"]').classList.add('selected');
 
-       // Show or hide the address fields
-       var addressFields = document.getElementById('addressFields');
+    // Show or hide the address fields
+    var addressFields = document.getElementById('addressFields');
     if (formatType === 'printed') {
         addressFields.style.display = 'block';
     } else {
@@ -591,7 +604,6 @@ function togglePrintingOptions() {
     printingOptions.style.display = selectedFormatType === 'printed' ? 'block' : 'none';
 }
 
-        
 function calculateAndDisplayPrice() {
     const shippingCost = 5; // Shipping cost
     let totalPrice = 60; // Base price for Noir et Blanc
@@ -601,31 +613,35 @@ function calculateAndDisplayPrice() {
         totalPrice += 30; // Additional cost for color
     }
 
+    // Add additional cost for multiple people
+    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
+    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
+
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
         totalPrice += prices[selectedSupport][selectedFormat] || 0;
     }
-        
-            // Add prices for the new options
-            const backgroundOption = document.querySelector('input[name="background"]:checked').value;
-            if (backgroundOption === 'complex') {
-                totalPrice += 30;
-            }
-            const propsOption = document.querySelector('input[name="props"]:checked').value;
-            if (propsOption === 'extra') {
-                totalPrice += 20;
-            }
-            const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
-            if (deliveryTimeOption === 'rush') {
-                totalPrice += 40;
-}
 
-// Add shipping cost
-totalPrice += shippingCost;
+    // Add prices for the new options
+    const backgroundOption = document.querySelector('input[name="background"]:checked').value;
+    if (backgroundOption === 'complex') {
+        totalPrice += 30;
+    }
+    const propsOption = document.querySelector('input[name="props"]:checked').value;
+    if (propsOption === 'extra') {
+        totalPrice += 20;
+    }
+    const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
+    if (deliveryTimeOption === 'rush') {
+        totalPrice += 40;
+    }
 
-// Update the total price display
-document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
-document.getElementById('totalPriceInput').value = totalPrice;
+    // Add shipping cost
+    totalPrice += shippingCost;
+
+    // Update the total price display
+    document.getElementById('totalPrice').textContent = `${totalPrice} € (frais de port inclus)`;
+    document.getElementById('totalPriceInput').value = totalPrice;
 }
 
 // Supporting functions for UI interactions
@@ -659,11 +675,10 @@ function hidePopupImage() {
     }
 }
 
-
 function selectSupport(support) {
     selectedSupport = support;
     document.getElementById('hiddenSelectedSupport').value = support;
-    
+
     // Highlight the selected support
     var supportOptions = document.getElementsByClassName('support-options')[0].getElementsByClassName('option');
     for (var i = 0; i < supportOptions.length; i++) {
@@ -672,51 +687,49 @@ function selectSupport(support) {
             supportOptions[i].classList.add('selected');
         }
     }
-updateFormatOptions(support);
+    updateFormatOptions(support);
 }
 
 function updateFormatOptions(support) {
     var dynamicFormatOptions = document.getElementById('dynamicFormatOptions');
-    dynamicFormatOptions.innerHTML ='';
+    dynamicFormatOptions.innerHTML = '';
 
     var formats = prices[support];
-if (formats) {
-    for (var format in formats) {
-        var optionDiv = document.createElement('div');
-        optionDiv.className = 'format-option';
-        optionDiv.textContent = format;
+    if (formats) {
+        for (var format in formats) {
+            var optionDiv = document.createElement('div');
+            optionDiv.className = 'format-option';
+            optionDiv.textContent = format;
 
-        // Use an immediately invoked function expression (IIFE) to create a new scope
-        (function(format) {
-            optionDiv.onclick = function() { selectFormat(format); };
-        })(format);
+            // Use an immediately invoked function expression (IIFE) to create a new scope
+            (function(format) {
+                optionDiv.onclick = function() { selectFormat(format); };
+            })(format);
 
-        dynamicFormatOptions.appendChild(optionDiv);
+            dynamicFormatOptions.appendChild(optionDiv);
+        }
     }
 }
 
-
-}
-
 function selectFormat(format) {
-selectedFormat = format;
-document.getElementById('hiddenSelectedFormat').value = format;
+    selectedFormat = format;
+    document.getElementById('hiddenSelectedFormat').value = format;
 
-   // Highlight the selected format
-   var formatOptions = document.getElementById('dynamicFormatOptions').getElementsByClassName('format-option');
+    // Highlight the selected format
+    var formatOptions = document.getElementById('dynamicFormatOptions').getElementsByClassName('format-option');
     for (var i = 0; i < formatOptions.length; i++) {
         formatOptions[i].classList.remove('selected');
         if (formatOptions[i].textContent === format) {
             formatOptions[i].classList.add('selected');
         }
     }
-calculateAndDisplayPrice();
+    calculateAndDisplayPrice();
 }
 
 function updateFileName(inputId) {
-var inputElement = document.getElementById(inputId);
-var fileNameSpan = document.getElementById('file-chosen-' + inputId);
-fileNameSpan.textContent = inputElement.files.length > 0 ? inputElement.files[0].name : "Pas de fichier choisi";
+    var inputElement = document.getElementById(inputId);
+    var fileNameSpan = document.getElementById('file-chosen-' + inputId);
+    fileNameSpan.textContent = inputElement.files.length > 0 ? inputElement.files[0].name : "Pas de fichier choisi";
 }
 
 // Form submission logic
@@ -727,13 +740,13 @@ form.addEventListener("submit", async function(event) {
     var data = new FormData(event.target);
     data.append('totalPrice', document.getElementById('totalPriceInput').value);
 
-// Check if a format has been selected
-if (selectedFormat === '') {
-    status.innerHTML = "Veuillez sélectionner un format d'impression avant de valider votre commande.";
-    status.style.color = 'red'; // Set the text color to red
-    status.style.fontWeight = 'bold'; // Set the font weight to bold
-    return; // Stop the form submission
-}
+    // Check if a format has been selected only if the format type is printed
+    if (selectedFormatType === 'printed' && selectedFormat === '') {
+        status.innerHTML = "Veuillez sélectionner un format d'impression avant de valider votre commande.";
+        status.style.color = 'red'; // Set the text color to red
+        status.style.fontWeight = 'bold'; // Set the font weight to bold
+        return; // Stop the form submission
+    }
 
     try {
         const response = await fetch(event.target.action, {
@@ -754,9 +767,11 @@ if (selectedFormat === '') {
         status.innerHTML = "Oups ! Il y a eu un problème lors de la soumission de votre formulaire";
     }
 });
+
 function changeMainImage(newImageSrc) {
     document.getElementById('mainImage').src = 'img/' + newImageSrc;
 }
+
 
 </script>
     
