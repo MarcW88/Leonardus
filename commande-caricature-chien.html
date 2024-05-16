@@ -505,7 +505,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners for color choices and additional options
     document.getElementById('colorBlackWhite').addEventListener('change', calculateAndDisplayPrice);
     document.getElementById('colorColor').addEventListener('change', calculateAndDisplayPrice);
-    document.getElementById('numberOfPeople').addEventListener('change', calculateAndDisplayPrice);
     document.querySelectorAll('input[name="background"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
     document.querySelectorAll('input[name="props"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
     document.querySelectorAll('input[name="delivery-time"]').forEach(radio => radio.addEventListener('change', calculateAndDisplayPrice));
@@ -605,7 +604,7 @@ function calculateAndDisplayPrice() {
     }
 
     // Add additional cost for multiple people
-    let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
+    let numberOfPeople = 1; // Default to 1 for animal caricature
     totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
 
     // Add prices for selected support and format
