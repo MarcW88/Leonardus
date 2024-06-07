@@ -59,6 +59,9 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
   <link rel="stylesheet" href="css/style.css">
   <!-- Responsive -->
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -68,6 +71,216 @@ src="https://www.facebook.com/tr?id=3677176159269654&ev=PageView&noscript=1"
   <!-- Balises Hreflang (Ajoutez ici) -->
   <link rel="alternate" hreflang="fr-BE" href="https://marcwilliame.be">
   <meta name="google-site-verification" content="SLCUlfeSBdo7r_cNGSFTGqmEBntKEb7WCl2Rq__3TgM" />
+  <style>
+  /* Hero Area Styles */
+
+  .container {
+    max-width: 1400px; /* Increase if necessary to provide more space */
+    width: 100%;
+    margin: auto;
+    padding: 0 20px; /* Optional: Maintain padding on the sides */
+}
+
+
+.hero-area {
+  background-image: url('img/background-caricatures.jpeg'); /* Local image file */
+  background-size: cover;
+  background-position: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-area h1, .hero-area p, .hero-area a {
+    color: white; /* Ensures all text is white */
+  }
+
+.hero-area .btn-group {
+  display: flex;
+  gap: 10px; /* Optional: adds space between buttons */
+}
+
+.portfolio-btn {
+    background-color: #0fb6ac; /* New background color */
+    border: 1px solid #0fb6ac; /* Border color to match */
+}
+
+.portfolio-btn:hover {
+    color: #fff; /* Change text color on hover */
+    background: none;
+    border: 1px solid #0fb6ac !important; /* Maintain your hover effects */
+}
+
+.btn-style a{
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+}
+
+.btn-style a[href='https://www.marcwilliame.be/portfolio'] {
+    background-color: #0fb6ac; /* New background color */
+    border: 1px solid #0fb6ac; /* Border color to match */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+}
+
+.btn-style a[href='https://www.marcwilliame.be/portfolio']:hover {
+    color: #fff; /* Change text color on hover */
+    background: none;
+    border: 1px solid #83ED58; /* Maintain your hover effects */
+}
+/* Container for service blocks */
+#services {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Ensure all items align at their tops */
+    flex-wrap: nowrap; /* Prevent wrapping into multiple rows */
+    max-width: 1400px; /* Match the container width */
+    margin: auto;
+}
+
+#services .container {
+  padding-top: 0px;
+}
+
+.services-row {
+    display: flex;
+    justify-content: space-around; /* Adjusts items to space around equally */
+    align-items: flex-start; /* Align items at the start of the flex container */
+}
+
+.service-block {
+    width: calc(33.333% - 40px); /* Subtract any margins if necessary */
+    margin: 20px; /* Provides spacing between blocks */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.service-block img {
+    width: 100%; /* Ensures the image fills the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes any extra space below the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Horizontal offset, vertical offset, blur radius, color */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.service-block img:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Larger shadow for a lifting effect */
+}
+
+
+
+@media (max-width: 1200px) {
+    .service-block {
+        width: calc(50% - 40px); /* Two columns on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    #services {
+        flex-direction: column; /* Stack the blocks vertically on small screens */
+    }
+    .service-block {
+        width: 100%; /* Full width for single column layout */
+        margin: 10px 0; /* Adjust margin for smaller screen */
+    }
+}
+
+.service-description {
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-top: 10px;
+    display: none;
+    width: 100%; /* Ensure descriptions take full width of the container */
+}
+.rating::after {
+    content: "★★★★★";
+    color: rgb(224, 224, 26); /* Change the color of stars */
+    font-size: 1em; /* Adjust the size of stars as needed */
+    padding-right: 5px; /* Space between stars and the text */
+}
+
+.quote-box {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, and color */
+    transition: box-shadow 0.3s ease-in-out; /* Optional: Smooth transition for hover effects */
+}
+
+#portfolio-container {
+    max-width: 1000px; /* Specific width for the portfolio container */
+    margin: auto; /* Center the container */
+    padding: 0; /* No padding */
+}
+
+.portfolio-item {
+    flex: 1 1 33.333%; /* Each item takes one-third of the space */
+    margin: 0; /* No margin */
+    padding: 0; /* No padding */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.portfolio-item img {
+    width: 100%; /* Full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no extra space below the image */
+}
+
+@media (max-width: 768px) {
+    .portfolio-item {
+        flex: 0 0 50%; /* Two items per row on medium screens */
+    }
+    .portfolio-item img {
+        width: 90%; /* Larger to fill more of the item on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item {
+        flex: 0 0 100%; /* Full width on small screens */
+    }
+    .portfolio-item img {
+        width: 100%; /* Full width inside the container */
+    }
+}
+.full-width-btn a {
+    display: block; /* Makes the <a> tag behave like a block element */
+    width: 100%; /* Full width of its container */
+    text-align: center; /* Centers the text within the <a> tag */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Removes underline from the link */
+    color: #fff;
+    margin-top: 10px;
+  padding:  25px;
+	background-color: #c1903e;
+	border: 1px solid #c1903e;
+	text-decoration: none;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+}
+.image-with-shadow {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+.custom-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.custom-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.custom-list li i {
+  color: #0fb6ac;
+  left: 0;
+  top: 0; /* Adjust to align the icon vertically with the text */
+  font-size: 20px; /* Smaller size for the check mark */
+}
+
+
+/* End of Hero Area Styles */
+</style>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -215,7 +428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="nav-btn" href="https://www.marcwilliame.be/caricature-personnalisee">Home</a></li>
+              <li><a class="nav-btn" href="https://www.marcwilliame.be/caricature-personnalisee">Accueil</a></li>
     <!-- Dropdown for Services -->
     <li class="dropdown">
       <a class="nav-btn dropdown-toggle" href="https://www.marcwilliame.be/caricature-personnalisee" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -228,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Add more services as needed -->
       </ul>
     </li>              
-    <li><a class="nav-btn" href="https://www.marcwilliame.be/portfolio">Portfolio</a></li>
+    <li><a class="nav-btn" href="https://www.marcwilliame.be/idees-cadeau">Idées cadeau</a></li>
     <li><a class="nav-btn" href="https://www.marcwilliame.be/contactez-moi">Contact</a></li>
               <li><a class="nav-btn-command" href="https://www.marcwilliame.be/commande-caricature-ou-portrait">Commandez en ligne</a></li>
             </ul>
@@ -237,49 +450,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </nav><!-- navbar end -->
       <div class="hero-area">
         <div class="container">
-          <div class="row">
-            <div class="hero-title col-xs-12 col-sm-12 col-md-6 col-lg-7">
-                <h1 class="wow slideInLeft" data-wow-duration="1s">Capturez l'essence, personnalisez l'instant !</h1>
-                <p class="wow slideInLeft" data-wow-duration="1.5s">
-                  <br> </p>Désirez-vous immortaliser des moments précieux ? Je transforme vos souvenirs en cadeaux intemporels et personnalisés à travers mes <b>portraits et caricatures</b> digitales, <br/> capturant l'essence même de chaque instant avec passion et précision.
-              <div class="btn-style wow slideInLeft" data-wow-duration="2s">
-                <a href="https://www.marcwilliame.be/commande-caricature-ou-portrait">Offrez une caricature à l'un de vos proches 
-                </a>
-              </div>
+            <div class="row">
+                <div class="hero-title col-xs-12 col-sm-12 col-md-6 col-lg-7">
+                    <h1 class="wow slideInLeft" data-wow-duration="1s">Capturez l'essence, personnalisez l'instant !</h1>
+                    <p class="wow slideInLeft" data-wow-duration="1.5s">
+                        Désirez-vous immortaliser des moments précieux ? Je transforme vos souvenirs en cadeaux intemporels et personnalisés à travers mes <b>portraits et caricatures</b> digitales, capturant l'essence même de chaque instant avec passion et précision.
+                    </p>
+                    <div class="btn-group wow slideInLeft" data-wow-duration="2s">
+                        <div class="btn-style">
+                            <a href="https://www.marcwilliame.be/commande-caricature-ou-portrait">Commandez en ligne</a>
+                        </div>
+                        <div class="btn-style">
+                          <a href="https://www.marcwilliame.be/portfolio" class="discover-btn">Découvrez mon portfolio</a>
+                      </div>
+                    </div>
+                </div>
             </div>
-            <div class="hero-img col-xs-12 col-sm-12 col-md-6 col-lg-5">
-              <img class="img-responsive wow slideInRight" data-wow-duration="1s" src="img/caricature-marc-williame.jpeg" alt="Caricature digitale Marc Williame">
-            </div>
-          </div><!-- row-end -->
-        </div><!-- container-end -->
-      </div><!-- hero-area end -->
+        </div>
+    </div>
+      
     </header>
     <!-- Header End -->
-    <!-- Services Start -->
-    <div id="services">
-      <div class="container">
-        <div class="row">
-          <div class="title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-            <h2>Des créations sur mesure</h2>
-            <p>Je vous propose des créations personnalisées, conçues sur mesure pour rendre chaque occasion unique. Grâce à la simplicité du digital, recevez une œuvre numérique intemporelle, à vous pour la vie, prête à être réimprimée sur n'importe quel format ou support sans coûts additionnels. Laissez-vous séduire par l'art de la personnalisation et <a href="https://www.marcwilliame.be/commande-caricature-ou-portrait">commandez votre caricature ou portrait</a> dès maintenant pour créer un souvenir qui traversera les années avec originalité.
-            </p>
+  <!-- Services Start -->
+  <div id="services">
+    <div class="container">
+      <div class="row">
+        <div class="title  col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+          <h2>Des créations sur mesure</h2>
+          <p>Je vous propose des créations personnalisées, conçues sur mesure pour rendre chaque occasion unique. Grâce à la simplicité du digital, recevez une œuvre numérique intemporelle, à vous pour la vie, prête à être réimprimée sur n'importe quel format ou support sans coûts additionnels. Laissez-vous séduire par l'art de la personnalisation et <a href="https://www.marcwilliame.be/commande-caricature-ou-portrait">commandez votre caricature ou portrait</a> dès maintenant.
+          </p>
+        </div>
+      </div><!-- row-end -->
+      <div id="services" class="container">
+        <div class="service-block">
+            <h3>Caricatures</h3>
+            <img src="img/caricature-femme.jpeg" alt="Caricature Service">
+            <div class="btn-style">
+              <a href="https://www.marcwilliame.be/commande-caricature">Commandez votre caricature</a>
           </div>
-        </div><!-- row-end -->
-        <div class="row">
-          <div class="service-illustration col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img class="img-responsive wow slideInRight" data-wow-duration="1s" src="img/caricature-audrey-hepburn.jpg" alt="Découvrez mes services de caricatures digitales et portraits">
+        </div>
+        <div class="service-block">
+            <h3>Portraits</h3>
+            <img src="img/portraits.jpg" alt="Caricature Service">
+            <div class="btn-style">
+              <a href="https://www.marcwilliame.be/commande-portrait">Commandez votre portrait</a>
           </div>
-          <div class="service-offers col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="offer wow fadeIn" data-wow-delay="0.1s">
-              <h3>Caricatures</h3>
-              <p>Capturez l'humour et l'essence de vos proches à travers <a href="https://www.marcwilliame.be/caricature-personnalisee">mes caricatures</a>, créées avec une touche personnelle qui garantit un sourire à chaque regard. L'exagération subtile met en évidence les traits uniques, rendant chaque caricature unique et mémorable.              </p>
-            </div>
-            <div class="offer wow fadeIn" data-wow-delay="0.1s">
-              <h3>Portraits</h3>
-              <p>Pour une représentation à la fois classique et élégante, <a href="https://www.marcwilliame.be/portrait-personnalisee">mes portraits personnalisés</a> sont le choix idéal. Je m'engage à capturer la ressemblance et l'essence de chaque sujet, contribuant ainsi à réaliser un portrait qui est non seulement un reflet fidèle, mais aussi une véritable expression artistique.
-              </p>
-            </div>
+        </div>
+        <div class="service-block">
+            <h3>Illustrations</h3>
+            <img src="img/illustrations.jpg" alt="Caricature Service">
+            <div class="btn-style">
+              <a href="https://www.marcwilliame.be/commande-illustration">Commandez votre illustration</a>
           </div>
+        </div>
+    </div>
+    <div>
+      <br/>
+      <p>Capturez l'humour et l'essence de vos proches à travers mes caricatures, chaque pièce étant créée avec une touche personnelle qui garantit un sourire à chaque regard. L'exagération subtile souligne les traits uniques de chaque sujet, rendant ainsi chaque caricature unique et mémorable. Pour une représentation à la fois classique et élégante, optez pour mes portraits personnalisés. Je m'engage à capturer fidèlement la ressemblance et l'essence de chaque sujet, transformant chaque portrait en une expression artistique riche et authentique.<br/><br/></p></div>
+    
+</div>
         </div><!-- row end -->
       </div><!-- container-end -->
     </div>
@@ -288,143 +517,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="portfolio">
       <div class="container">
         <div class="row">
-          <div class="title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-            <h2>Dernières réalisations</h2>
-            <p> Découvrez mes derniers travaux, réalisés sur commande ou au gré de mes inspirations personnelles </p>
-          </div>
-        </div><!-- row end -->
-        <!--portfolio items-->
-        <div class="row work-items">
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 web">
-            <div class="single-item">
-              <div class="img-box img-box-overlay">
-              <a href="img/caricature-illustration.jpeg" class="portfolio-popup">
-                  <img src="img/caricature-illustration.jpeg" alt="Demandez une mise en scène personnalisée pour vos caricatures digitales">
-              </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <div class="img-box img-box-overlay">
-                 <a href="img/portrait-realiste.jpeg" class="portfolio-popup">
-                  <img src="img/portrait-realiste.jpeg" alt="Caricature digitale de l'écrivain Ernest Hemingway">
-                 </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 illustrations">
-            <div class="single-item">
-              <a href="img/caricature-cinema.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                  <img src="img/caricature-cinema.jpeg" alt="Caricature digitale de l'actrice Clara Bow">
-              </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-               <a href="img/caricature-humour.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature-humour.jpeg" alt="Découvrez mes caricatures humoristiques">
-               </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <a href="img/caricature-noir-et-blanc.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature-noir-et-blanc.jpeg" alt="Commandez votre caricature en noir et blanc">
-              </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <a href="img/caricature-couleur.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature-couleur.jpeg" alt="Commandez votre caricature digitale en noir et blanc ou en couleur">
-              </a>
-              </div>
-            </div>
-          </div>
-         <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <a href="img/caricature personnalisable.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature personnalisable.jpeg" alt="Commandez votre caricature digitale en noir et blanc ou en couleur">
-              </a>
-              </div>
-            </div>
-          </div>
-          <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <a href="img/caricature-cadeau-personnalisé.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature-cadeau-personnalisé.jpeg" alt="Commandez votre caricature digitale en noir et blanc ou en couleur">
-              </a>
-              </div>
-            </div>
-          </div>
-            <!--item-->
-          <div class="item-box col-lg-4 col-md-4 col-sm-6 col-xs-12 app">
-            <div class="single-item">
-              <a href="img/caricature-peter-dinklage.jpeg" class="portfolio-popup">
-              <div class="img-box img-box-overlay">
-                <img src="img/caricature-peter-dinklage.jpeg" alt="Commandez votre caricature digitale en noir et blanc ou en couleur">
-              </a>
-              </div>
-            </div>
-          </div>
-      </div><!-- row end -->
-      <div class="row">
-        <div class="col-lg-12">
-          <div style="display: none;" class="btn-style text-center wow fadeIn" data-wow-duration="2s">
-            <a href="">Faites le tour de la galerie !</a>
-          </div>
-        </div>
-      </div><!-- row end -->
-    </div><!-- container end -->
-    <!-- works end -->
-  </div>
-  <!-- Portoflio end -->
-    <!-- About Start -->
-    <div id="about">
-      <div class="container">
-        <div class="row">
-          <div class="title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-            <h2>A propos ... qui suis-je ?</h2>
-          </div>
-        </div><!-- row end -->
-        <div class="row">
           <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12">
             <div class="about-illustration">
-              <img class="img-responsive wow slideInLeft" data-wow-duration="2s" src="img/marc-williame.jpg" alt="Marc Williame | Caricatures - Portraits">
+              <img class="img-responsive wow slideInLeft" data-wow-duration="2s" src="img/idee-cadeau.png" alt="Marc Williame | Caricatures - Portraits">
             </div>
           </div>
           <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12 wow fadeIn" data-wow-delay="0.1s">
-            <div class="about-info">
-              <p>Depuis l'enfance, le dessin m'a toujours fasciné. Même si le crayon a eu un peu de mal à me trouver au début... une fois réunis, on a décidé de ne plus se lâcher.
-                Ajourd'hui, je vous invite à plonger dans un univers où la légèreté règne, à travers mes caricatures et portraits. <br/><br/>
-                À la manière d'un photographe qui capture un instant ou d'un vidéaste qui raconte une histoire, à travers mes caricatures et portraits, j'essaie de graver l'authenticité de chaque sujet sur papier (digital). Chaque trait a sa raison d'être, capturant l'unique, voire l'excentrique. L'idée ? Offrir plus qu'un sourire - un petit morceau d'éternité... et de folie !<br/><br/>
-                 J'espère que vous aurez autant de plaisir à découvrir mes créations que j'en ai eu à les dessiner. Je serai ravi de croiser votre route, de partager des rires, des moments authentiques et, peut-être de collaborer ensemble afin de créer des souvenirs mémorables !</p>
-              <div>
-                <a href="https://be.linkedin.com/in/marc-williame-67a7aaa1"><i class="fab fa-linkedin"></i></a>
+            <div class="about-info text-right">
+              <h2>Un cadeau original pour l'un de vos proches</h2>
+
+              <p>Je peux réaliser des caricatures comme cadeaux pour toutes occasions – anniversaires, départs à la retraite, groupes d'entreprise et présentations, anniversaires de mariage, remises de diplôme, etc.<br/><br/> Ces caricatures peuvent représenter des individus, des couples ou des groupes et être de toutes tailles, de A4 à A1 ! L'originalité du cadeau peut être mise en valeur en l'imprimant sur différents supports, tels qu'une toile, un encadrement, un mug ... et même un puzzle.</p>
+              <div class="btn-style">
+                <a href="https://www.marcwilliame.be/idees-cadeau" class="portfolio-btn">Découvrez les possibilités</a>
               </div>
             </div>
           </div>
-        </div><!-- row end -->
-      </div><!-- container end -->
-    <!-- quotes start -->
+        </div>
+      </div>
+    </div>  <!-- This closing tag should end the portfolio section -->
+      <!-- quotes start -->
     <div class="quotes">
       <div class="container">
         <div class="row">
@@ -433,11 +544,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="quote-box">
               <div class="quote-info">
                 <div class="contact-info">
-                  <p>Charles D.</p>
+                  <p class="rating">Pierre H.</p>
                 </div>
               </div>
               <div class="quote-text">
-                <p>J'adore le portrait que vous avez fait de nous. Chaque trait nous ressemble vraiment. Merci beaucoup !"
+                <p>Je voulais vous informer que la caricature est arrivée aujourd'hui et qu'elle correspond parfaitement à nos attentes. Merci beaucoup.                  "
                 </p>
               </div>
             </div>
@@ -446,27 +557,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- quote -->
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-delay="0.1s">
             <div class="quote-box">
-              <div class="quote-info">
-                <div class="contact-info">
-                  <p>Frans G.</p>
+                <div class="quote-info">
+                    <div class="contact-info">
+                        <p class="rating">Charles H.</p>
+                    </div>
                 </div>
-              </div>
-              <div class="quote-text">
-                <p>La caricature de mon pote était hilarante ! Tout le monde a éclaté de rire quand ils l'ont vue. </p>
-              </div>
+                <div class="quote-text">
+                    <p>Je confirme la réception de la caricature – elle est absolument géniale ! Je suis vraiment ravi, il va l'adorer.
+                    </p>
+                </div>
             </div>
-          </div>
+        </div>        
           <!-- quote end-->
           <!-- quote -->
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-delay="0.1s">
             <div class="quote-box">
               <div class="quote-info">
                 <div class="contact-info">
-                  <p>Pauline D.</p>
+                  <p class="rating">Delphine G.</p>
                 </div>
               </div>
               <div class="quote-text">
-                <p>Merci pour l'illustration que vous avez faite de ma soeur. C'est exactement ce que je voulais.</p>
+                <p>Juste pour vous dire un grand merci pour la caricature ! Elle est fabuleuse ! Mon ami a failli s'écrouler de rire en voyant son portrait !</p>
               </div>
             </div>
           </div>
@@ -475,195 +587,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div><!-- container end -->
     </div>
     <!-- quotes end -->
-    <!-- About end -->
-<!-- Pricing start -->
-<div id="pricing">
-  <div class="container">
+  <!-- Portoflio end -->
+<!-- About Start -->
+<div class="quotes">
+<div class="container">
+  <div class="row">
+      <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12 wow fadeIn" data-wow-delay="0.1s">
+          <h2>A propos ... qui suis-je ?</h2>
+          <p>Depuis l'enfance, le dessin m'a toujours fasciné. Même si le crayon a eu un peu de mal à me trouver au début... une fois réunis, on a décidé de ne plus se lâcher.
+              Aujourd'hui, je vous invite à plonger dans un univers où la légèreté règne, à travers mes caricatures et portraits.<br/><br/>
+              À la manière d'un photographe qui capture un instant ou d'un vidéaste qui raconte une histoire, à travers mes caricatures et portraits, j'essaie de graver l'authenticité de chaque sujet sur papier (digital). Chaque trait a sa raison d'être, capturant l'unique, voire l'excentrique. L'idée ? Offrir plus qu'un sourire - un petit morceau d'éternité... et de folie !<br/><br/>
+              J'espère que vous aurez autant de plaisir à découvrir mes créations que j'en ai eu à les dessiner. Je serai ravi de croiser votre route, de partager des rires, des moments authentiques et, peut-être de collaborer ensemble afin de créer des souvenirs mémorables !</p>
+      </div>
+      <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12">
+              <img class="img-responsive wow slideInRight" data-wow-duration="2s" src="img/caricature-marc-williame.jpeg" alt="Marc Williame | Caricatures - Portraits">
+          </div>
+      </div>
+
+    </div>
+  </div><!-- row end -->
+</div><!-- container end -->
+<!-- About end -->
+<div id="portfolio">
+    <div class="container">
       <div class="row">
           <div class="title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-              <h2>Mes tarifs</h2>
-              <p>... ou l'art de transformer votre pécule en pépites visuelles ...</p>
+              <h2>Une sélection de mes réalisations</h2>
           </div>
-      </div><!-- row end -->
+      </div>
+    <div class="container" id="portfolio-container">
       <div class="row">
-          <!-- left price table -->
-          <div class="col-md-4 col-xs-12 col-sm-12 wow fadeIn" data-wow-delay="0.1s">
-              <div class="text-center price-table">
-                  <h4>Portraits</h4>
-                  <div class="price">
-                      <p>a.p.d €120<span>/ portrait</span></p>
-                  </div>
-                  <ul>
-                      <li><b>Noir et blanc</b> ou en <b>couleur</b></li>
-                      <li>Résolution <b>haute définition</b>(300 dpi)</li>
-                      <li><b>Formats variés</b>: PSD, JPEG, PNG, PDF</li>
-                      <li>Impression <b>grand format</b> jusqu'à A1</li>
-                      <li>Adapté pour impression sur <b>tout support</b></li>    
-                  </ul>
-              </div>
-          </div>
-          <!-- middle price table -->
-          <div class="col-md-4 col-xs-12 col-sm-12 wow fadeIn" data-wow-delay="0.1s">
-              <div class="text-center price-table">
-                  <h4>Caricatures</h4>
-                  <div class="price">
-                      <p>a.p.d. €60<span>/ caricature</span></p>
-                  </div>
-                  <ul>
-                      <li><b>Noir et blanc</b> ou en <b>couleur</b></li>
-                      <li>Résolution <b>haute définition</b>(300 dpi)</li>
-                      <li><b>Formats variés</b>: PSD, JPEG, PNG, PDF</li>
-                      <li>Impression <b>grand format</b> jusqu'à A1</li>
-                      <li>Adapté pour impression sur <b>tout support</b></li>    
-                  </ul>
-              </div>
-          </div>
-          <!-- right price table -->
-          <div class="col-md-4 col-xs-12 col-sm-12 wow fadeIn" data-wow-delay="0.1s">
-              <div class="text-center price-table">
-                  <h4>Illustrations</h4>
-                  <div class="price">
-                    <p>a.p.d. €90<span>/ illustration</span></p>
-                  </div>
-                  <ul>
-                      <li>Résolution <b>haute définition</b>(300 dpi)</li>
-                      <li><b>Formats variés</b>: PSD, JPEG, PNG, PDF</li>
-                      <li>Impression <b>grand format</b> jusqu'à A1</li>
-                      <li>Adapté pour impression sur <b>tout support</b></li>    
-                      <br/>  
-                  </ul>
-              </div>
-          </div>
-      </div><!-- row end -->
-    <!-- FAQ Section Start -->
-<div class="row wow fadeIn" data-wow-delay="0.2s">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div id="accordion">
-          <!-- First Question -->
-<div class="card">
-  <div class="card-header" id="headingOne">
-      <p class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              1. Comment passer une commande ?
-          </button>
-        </p>
-  </div>
-  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-          Vous pouvez passer une commande en me contactant via le formulaire de contact sur cette page ou par email à marc.williame@hotmail.com.
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature1.png" alt="Creation 1"></div>
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature2.jpg" alt="Creation 2"></div>
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature3.jpg" alt="Creation 3"></div>
+      </div>
+      <div class="row">
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature4.jpg" alt="Creation 4"></div>
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature5.jpg" alt="Creation 5"></div>
+          <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-4"><img src="img/caricature6.jpg" alt="Creation 6"></div>
       </div>
   </div>
 </div>
-          <!-- Second Question -->
-          <div class="card">
-              <div class="card-header" id="headingTwo">
-                  <p class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          2. Quel est le délai de livraison ?
-                      </button>
-                    </p>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                  <div class="card-body">
-                      Le délai de création standard est de 15 jours ouvrables. Pour des demandes urgentes, veuillez me contacter pour discuter de la faisabilité et des éventuels délais accélérés.
-                  </div>
-              </div>
-          </div>
-          <!-- Third Question -->
-<div class="card">
-  <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              3. Comment se déroule le processus de paiement ?
-          </button>
-      </h5>
-  </div>
-  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-          Le processus de paiement est simple et transparent. Après avoir discuté et convenu des détails de votre commande, un acompte de 20% est requis pour débuter le travail. Le solde restant est payable à la livraison de l'illustration finale. Une fois l'acompte reçu, je commence à travailler sur votre commande et vous tiendrai informé tout au long du processus de création.
-      </div>
-  </div>
 </div>
-
-      </div>
-  </div>
-</div>
-<!-- FAQ Section End -->
-
-  </div><!-- container end -->
-</div>
-<!-- Pricing end -->
-<!-- Contact start -->
-<div class="contact" id="contact">
-  <div class="container">
+<div class="quotes">
+  <div class="container-fluid"> <!-- Using container-fluid for full width -->
     <div class="row">
-      <div class="contac-title title text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 wow fadeIn" data-wow-delay="0.1s">
-        <h2>Parlons peu, mais parlons bien !</h2>
-        <p>Que ce soit en ligne ou autour d’un café, j'adorerais entendre ce que vous avez en tête pour votre projet. À très vite !</p>
+      <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12">
+        <div class="about-illustration">
+          <img class="img-responsive wow slideInLeft image-with-shadow" data-wow-duration="2s" src="img/illustration_personnalisee.jpeg" alt="Marc Williame | Caricatures - Portraits">
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12 wow fadeIn" data-wow-delay="0.1s">
+        <div class="about-info text-left">
+          <h2>Commandez votre caricature sur mesure</h2>
+          <p>Vous cherchez un cadeau vraiment unique, personnalisé et original pour une occasion spéciale ? Une caricature ou un portrait personnalisé est le meilleur cadeau pour vos proches : famille, amis, couples... ou pour des événements comme les anniversaires, les mariages, les départs à la retraite, Noël... Et bien sûr aussi pour vous-même.
+          <br/><br/>Envoyez-moi simplement quelques photos, choisissez l'option de produit que vous aimez, ou dites-moi quelle est votre idée, et vous recevrez un :</p>
+          <ul class="custom-list">
+            <li><i class="fas fa-check"></i> Une œuvre d'art numérique 100% dessinée à la main.</li>
+    <li><i class="fas fa-check"></i> Un produit de haute qualité.</li>
+    <li><i class="fas fa-check"></i> Une œuvre d'art unique entièrement personnalisée.</li>
+          </ul>
+        </div>
       </div>
     </div><!-- row end -->
-  <!-- form start -->
-<div class="row">
-<div class="form-box col-xs-12 col-sm-9 col-md-9 col-lg-8 col-sm-offset-2 col-xs-offset-0 wow fadeIn" data-wow-delay="0.1s">
-    <div id="my-form-status"></div>  <!-- Ajout de la div pour afficher le statut -->
-    <form id="my-form" class="form"  action="https://formspree.io/f/xaygljbq"  method="POST">
-        <!-- Note: Le champ ci-dessous peut rester, il ne causera pas de problème, 
-             mais il n'est pas nécessaire pour Formspree -->            
-        <input type="hidden" name="form-name" value="contact-form">
-        <div class="field form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Nom + prénom" tabindex="1" required>
+    <div class="row">
+      <div class="col-12"> <!-- Full width column -->
+        <div class="full-width-btn"> <!-- Changed class name -->
+          <a href="https://www.marcwilliame.be/commande-caricature-ou-portrait">COMMANDEZ VOTRE CARICATURE OU PORTRAIT</a>
         </div>
-        <div class="field form-group">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email" tabindex="2" required>
-        </div>
-        <div class="field form-group">
-            <textarea rows="5" cols="50" name="message" class="form-control" id="message" placeholder="Décrivez-moi votre projet" tabindex="4" required></textarea>
-        </div>
-        <div class="field btn-style text-center" data-wow-duration="2s">
-            <button type="submit">Envoyer</button>
-        </div>
-    </form>
-
-    <!-- Place this script at the end of the body tag -->
-    <script>
-        var form = document.getElementById("my-form");
-        
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("my-form-status");
-          var data = new FormData(event.target);
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.innerHTML = "Merci pour votre demande !";
-              form.reset()
-            } else {
-              response.json().then(data => {
-                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                } else {
-                  status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi de votre formulaire";
-                }
-              })
-            }
-          }).catch(error => {
-            status.innerHTML = "Oups ! Il y a eu un problème lors de l'envoi de votre formulaire";
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
+      </div>
+    </div>
+  </div>
 </div>
-</div><!-- row end -->
-<!-- form end -->
-  </div><!-- container end -->
 </div>
-<!-- Contact end -->
-    <!-- Footer start -->
+<!-- Footer start -->
     <footer class="footer" id="footer">
       <div class="container">
         <div class="row">
