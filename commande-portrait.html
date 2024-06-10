@@ -467,7 +467,7 @@ function togglePrintingOptions() {
 
 function calculateAndDisplayPrice() {
     const shippingCost = 5; // Shipping cost
-    let totalPrice = 60; // Base price for Noir et Blanc
+    let totalPrice = 120; // Base price for Noir et Blanc
 
     // Add prices for selected color choice
     if (document.getElementById('colorColor').checked) {
@@ -476,7 +476,7 @@ function calculateAndDisplayPrice() {
 
     // Add additional cost for multiple people
     let numberOfPeople = parseInt(document.getElementById('numberOfPeople').value || 1);
-    totalPrice += (numberOfPeople - 1) * 45; // Additional cost per extra person
+    totalPrice += (numberOfPeople - 1) * 60; // Additional cost per extra person
 
     // Add prices for selected support and format
     if (selectedSupport && selectedFormat) {
@@ -490,11 +490,11 @@ function calculateAndDisplayPrice() {
     }
     const propsOption = document.querySelector('input[name="props"]:checked').value;
     if (propsOption === 'extra') {
-        totalPrice += 20;
+        totalPrice += 30;
     }
     const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
     if (deliveryTimeOption === 'rush') {
-        totalPrice += 40;
+        totalPrice += 30;
     }
 
     // Add shipping cost
