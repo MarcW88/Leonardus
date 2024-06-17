@@ -527,7 +527,7 @@ var selectedSupport = '';
 var selectedFormat = '';
 const prices = {
     canvas: {"20x30cm": 20, "30x30cm": 15, "30x40cm": 25, "40x60cm": 30, "50x70cm": 40, "60x90cm": 45},
-    framed: {"20x30cm": 50, "30x30cm": 50, "30x40cm": 55, "40x50cm": 70},
+    framed: {"20x30cm": 50, "30x30cm": 50, "30x40cm": 55, "40x60cm": 70},
     mug: {OneSize: 7},
     keychain: {"A4": 22, "A5": 16}
 };
@@ -594,7 +594,7 @@ function calculateAndDisplayPrice() {
 
     // Add prices for selected color choice
     if (document.getElementById('colorColor').checked) {
-        totalPrice += 45; // Additional cost for color
+        totalPrice += 30; // Additional cost for color
     }
 
     // Add additional cost for multiple people
