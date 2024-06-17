@@ -472,10 +472,10 @@
 });
 
 const framePrices = {
-  "20x30": 20,
-  "30x40": 30,
-  "40x60": 35,
-  "30x30": 20
+  "20x30": 50,
+  "30x40": 55,
+  "40x60": 70,
+  "30x30": 50
 };
 
 function selectNumberOfPeople(number) {
@@ -491,7 +491,7 @@ function selectNumberOfPeople(number) {
 
 function calculateAndDisplayPrice() {
   const shippingCost = 5; // Shipping cost
-  let totalPrice = 65; // Base price for Noir et Blanc
+  let totalPrice = 60; // Base price for Noir et Blanc
 
   // Add prices for selected color choice
   if (document.getElementById('colorColor').checked) {
