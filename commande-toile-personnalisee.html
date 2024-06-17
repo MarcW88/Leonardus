@@ -317,19 +317,27 @@
                           <div class="services-options">
                             <div>
                               <input type="radio" id="frame20x30" name="frame-size" value="20x30" checked>
-                              <label for="frame20x30">20x30 cm (+45 €)</label>
+                              <label for="frame20x30">20x30 cm </label>
+                            </div>
+                              <div>
+                              <input type="radio" id="frame30x30" name="frame-size" value="30x30">
+                              <label for="frame30x30">30x30 cm </label>
                             </div>
                             <div>
                               <input type="radio" id="frame30x40" name="frame-size" value="30x40">
-                              <label for="frame30x40">30x40 cm (+55 €)</label>
+                              <label for="frame30x40">30x40 cm </label>
                             </div>
                             <div>
-                              <input type="radio" id="frame40x50" name="frame-size" value="40x50">
-                              <label for="frame40x50">40x50 cm (+70 €)</label>
+                              <input type="radio" id="frame40x60" name="frame-size" value="40x50">
+                              <label for="frame40x50">40x60 cm </label>
                             </div>
-                            <div>
-                              <input type="radio" id="frame30x30" name="frame-size" value="30x30">
-                              <label for="frame30x30">30x30 cm (+50 €)</label>
+                                <div>
+                              <input type="radio" id="frame50x70" name="frame-size" value="50x70">
+                              <label for="frame30x30">50x70 cm </label>
+                            </div>
+                                  <div>
+                              <input type="radio" id="frame60x90" name="frame-size" value="60x90">
+                              <label for="frame30x30">60x90 cm </label>
                             </div>
                           </div>
                         </div>
@@ -472,10 +480,12 @@
 });
 
 const framePrices = {
-  "20x30": 45,
-  "30x40": 55,
-  "40x50": 70,
-  "30x30": 50
+  "20x30": 20,
+  "30x30": 15,
+  "30x40": 25,
+  "40x60": 30,
+  "50x70": 40,
+  "60x90": 45
 };
 
 function selectNumberOfPeople(number) {
@@ -495,7 +505,7 @@ function calculateAndDisplayPrice() {
 
   // Add prices for selected color choice
   if (document.getElementById('colorColor').checked) {
-    totalPrice += 45; // Additional cost for color
+    totalPrice += 30; // Additional cost for color
   }
 
   // Add additional cost for multiple people
