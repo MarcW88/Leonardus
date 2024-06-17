@@ -526,8 +526,8 @@ var selectedFormatType = 'digital';
 var selectedSupport = '';
 var selectedFormat = '';
 const prices = {
-    canvas: {"20x30cm": 16, "30x30cm": 13, "30x40cm": 23, "40x60cm": 29, "50x70cm": 36, "60x90cm": 42},
-    framed: {"20x30cm": 44, "30x30cm": 46, "30x40cm": 52, "40x50cm": 67},
+    canvas: {"20x30cm": 20, "30x30cm": 15, "30x40cm": 25, "40x60cm": 30, "50x70cm": 40, "60x90cm": 45},
+    framed: {"20x30cm": 50, "30x30cm": 50, "30x40cm": 55, "40x50cm": 70},
     mug: {OneSize: 7},
     keychain: {"A4": 22, "A5": 16}
 };
@@ -594,7 +594,7 @@ function calculateAndDisplayPrice() {
 
     // Add prices for selected color choice
     if (document.getElementById('colorColor').checked) {
-        totalPrice += 30; // Additional cost for color
+        totalPrice += 45; // Additional cost for color
     }
 
     // Add additional cost for multiple people
@@ -613,11 +613,11 @@ function calculateAndDisplayPrice() {
     }
     const propsOption = document.querySelector('input[name="props"]:checked').value;
     if (propsOption === 'extra') {
-        totalPrice += 20;
+        totalPrice += 30;
     }
     const deliveryTimeOption = document.querySelector('input[name="delivery-time"]:checked').value;
     if (deliveryTimeOption === 'rush') {
-        totalPrice += 40;
+        totalPrice += 30;
     }
 
     // Add shipping cost
