@@ -151,3 +151,28 @@ $(window).scroll(function() {
     $('.navbar-default').removeClass('shrink');
   }
 });
+
+/***********************************/
+/*   Récupération des pages WordPress via l'API REST  */
+/***********************************/
+// Récupération des pages WordPress via l'API REST
+fetch('https://marcwilliame.be/wp-json/wp/v2/pages')
+  .then(response => response.json())
+  .then(data => {
+    // Sélectionne un conteneur sur ton site pour afficher le contenu
+    const container = document.getElementById('content'); // Ajoute un conteneur avec l'id "content" dans ton HTML
+
+    // Parcourt les pages récupérées depuis WordPress
+    data.forEach(page => {
+      const pageDiv = document.createElement('div');
+      pageDiv.innerHTML = `
+        <h2>${page.title.rendered}</h2>
+        <div>${page.content.rendered}</div>
+      `;
+      container.appendChild(pageDiv);
+    });
+  })
+  .catch(error => {
+    console.error('Erreur lors de la récupération des pages WordPress :', error);
+  });
+
