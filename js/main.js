@@ -1,178 +1,228 @@
-jQuery(window).load(function(){
-  // USE STRICT
-"use strict";
-  /***********************************/
-  /*            Preloader            */
-  /***********************************/
-  jQuery(".leonardo-preloader").fadeOut(500);
-  /***********************************/
-  /*        Portfolio  Isotope       */
-  /***********************************/
-  if($('.work-items').length) {
-    var $elements = $('.work-items');
-    $elements.isotope();
-    $('.portfolio-filter ul li').on('click', function() {
-      $('.portfolio-filter ul li').removeClass('sel-item');
-      $(this).addClass('active-item');
-      var selector = $(this).attr('data-filter');
-      $(".work-items").isotope({
-        filter: selector,
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false,
-        }
+/* ============================================================
+   Caric'Art — script principal
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  initStatusBanner();
+  initMobileNav();
+  initActiveNavLink();
+  initYear();
+  initHeroBackdrop();
+  initHeroArt();
+
+  // Galerie complète (page galerie + boutique)
+  const gallery = document.querySelector("[data-gallery]");
+  if (gallery) initGallery(gallery);
+
+  // Sélection d'œuvres sur la page d'accueil
+  const featured = document.querySelector("[data-featured]");
+  if (featured) renderWorks(featured, WORKS.slice(0, 4), true);
+});
+
+/* ---------- Bandeau statut des commandes ---------- */
+function initStatusBanner() {
+  const el = document.getElementById("status-banner");
+  if (!el) return;
+  const open = SITE_CONFIG.commandesOuvertes;
+  el.className = "status-banner " + (open ? "open" : "closed");
+  el.innerHTML = open
+    ? `${SITE_CONFIG.texteOuvert} <a href="commandes.html">Commander une caricature →</a>`
+    : `${SITE_CONFIG.texteFerme} <a href="contact.html">Être prévenu →</a>`;
+}
+
+/* ---------- Menu mobile ---------- */
+function initMobileNav() {
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".main-nav");
+  if (!burger || !nav) return;
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("open");
+    nav.classList.toggle("open");
+  });
+  nav.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      burger.classList.remove("open");
+      nav.classList.remove("open");
+    })
+  );
+}
+
+/* ---------- Lien de nav actif ---------- */
+function initActiveNavLink() {
+  const page = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".main-nav a").forEach((a) => {
+    if (a.getAttribute("href") === page) a.classList.add("active");
+  });
+}
+
+/* ---------- Année du footer ---------- */
+function initYear() {
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+}
+
+/* ---------- Hero : fond & bande défilante ---------- */
+function initHeroBackdrop() {
+  const bg = document.querySelector(".hero-bg");
+  if (bg) {
+    bg.innerHTML = WORKS.slice(0, 12)
+      .map((w) => `<img src="${w.file}" alt="" loading="lazy">`)
+      .join("");
+  }
+  const track = document.querySelector("[data-marquee]");
+  if (track) {
+    const imgs = WORKS.slice(0, 24)
+      .map((w, i) => `<img src="${w.file}" alt="${w.title}" data-index="${i}" loading="lazy">`)
+      .join("");
+    track.innerHTML = imgs + imgs; // duplication pour une boucle infinie
+    track.querySelectorAll("img").forEach((img) =>
+      img.addEventListener("click", () => openLightbox(parseInt(img.dataset.index, 10)))
+    );
+  }
+}
+
+/* ---------- Hero : cadres cliquables ---------- */
+function initHeroArt() {
+  document.querySelectorAll(".hero-art img[data-work-index]").forEach((img) =>
+    img.addEventListener("click", () =>
+      openLightbox(parseInt(img.dataset.workIndex, 10))
+    )
+  );
+}
+
+/* ---------- Galerie ---------- */
+function initGallery(container) {
+  const mode = container.dataset.gallery || "all";
+  let items = WORKS;
+  if (mode === "forsale") {
+    items = items.filter((w) => w.forSale);
+  } else if (mode !== "all") {
+    items = items.filter((w) => w.category === mode);
+  }
+
+  const filterBar = document.querySelector("[data-filters]");
+  if (filterBar && mode === "all") {
+    const cats = [...new Set(items.map((w) => w.category))];
+    filterBar.innerHTML =
+      `<button class="filter-btn active" data-cat="all">Tout voir</button>` +
+      cats
+        .map(
+          (c) =>
+            `<button class="filter-btn" data-cat="${c}">${CATEGORIES[c] || c}</button>`
+        )
+        .join("");
+
+    filterBar.addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      filterBar
+        .querySelectorAll(".filter-btn")
+        .forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const cat = btn.dataset.cat;
+      const shown = cat === "all" ? items : items.filter((w) => w.category === cat);
+      renderWorks(container, shown, true);
+    });
+  }
+
+  if (!items.length) {
+    container.innerHTML =
+      '<p class="note text-center" style="grid-column:1/-1">Les œuvres de cette section seront dévoilées prochainement.</p>';
+    return;
+  }
+  renderWorks(container, items, true);
+}
+
+/* ---------- Rendu des cartes œuvres ---------- */
+function renderWorks(container, items, withLightbox) {
+  container.innerHTML = items
+    .map(
+      (w, i) => `
+      <article class="work-card" data-index="${WORKS.indexOf(w)}" tabindex="0"
+               role="button" aria-label="Voir ${w.title} en grand">
+        <img src="${w.file}" alt="${w.title} — caricature ${CATEGORIES[w.category] || ""}" loading="lazy">
+        <div class="work-meta">
+          <div class="work-cat">${CATEGORIES[w.category] || w.category}${w.year ? " · " + w.year : ""}</div>
+          <div class="work-title">${w.title}</div>
+          ${w.medium ? `<div class="note">${w.medium}</div>` : ""}
+          ${w.forSale ? `<span class="work-badge">À vendre${w.price ? " · " + w.price : ""}</span>`
+                      : `<span class="work-badge sold">Non disponible</span>`}
+        </div>
+      </article>`
+    )
+    .join("");
+
+  if (withLightbox) {
+    container.querySelectorAll(".work-card").forEach((card) => {
+      card.addEventListener("click", () =>
+        openLightbox(parseInt(card.dataset.index, 10))
+      );
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")
+          openLightbox(parseInt(card.dataset.index, 10));
       });
     });
   }
-  /***********************************/
-  /*     Scroll To Part of Page      */
-  /***********************************/
-  $("a").on('click', function(event) {
-    // USE STRICT
-    "use strict";
-    if (this.hash !== "") {
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-        window.location.hash = hash;
-      });
-      event.preventDefault();
-    }
-  });
-  /***********************************/
-  /* Close Mobile Menu on Side Click */
-  /***********************************/
-  $('.nav-btn').on('click',function(){
-   $('.collapse').collapse('hide');
-  $("#menu-nav-btn").toggleClass("active");
-  });
-  /***********************************/
-  /*            Menu icon            */
-  /***********************************/
-  $('#menu-nav-btn').on('click', function() {
-    // USE STRICT
-    "use strict";
-    if ($('#menu-nav-btn').attr('aria-expanded') === "false") {
-      $('#menu-nav-btn').addClass('active');
-    } else if ($('#menu-nav-btn').attr('aria-expanded') === "true") {
-      $('#menu-nav-btn').removeClass('active');
-    }
-  });
-  /***********************************/
-  /*        Initalise wow.js         */
-  /***********************************/
-  $(function(){
-    // USE STRICT
-    "use strict";
-    new WOW().init();
-  });
-  /***********************************/
-  /*     Number Count Animations     */
-  /***********************************/
-  var table = document.getElementById('index-page');
-  if (table) {
-    var a = 0;
-    $(window).scroll(function() {
-      // USE STRICT
-      "use strict";
-      var oTop = $('.stats-box').offset().top - window.innerHeight;
-      if (a == 0 && $(window).scrollTop() > oTop) {
-        $('.counter-value').each(function() {
-          var $this = $(this),
-            countTo = $this.attr('data-count');
-          $({
-            countNum: $this.text()
-          }).animate({
-              countNum: countTo
-            },
-            {
-              duration: 2000,
-              easing: 'swing',
-              step: function() {
-                $this.text(Math.floor(this.countNum));
-              },
-              complete: function() {
-                $this.text(this.countNum);
-                //alert('finished');
-              }
-            });
-        });
-        a = 1;
-      }
+}
+
+/* ---------- Lightbox ---------- */
+let lbIndex = 0;
+
+function openLightbox(index) {
+  lbIndex = index;
+  let lb = document.querySelector(".lightbox");
+  if (!lb) {
+    lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML = `
+      <div class="lightbox-inner">
+        <button class="lightbox-close" aria-label="Fermer">×</button>
+        <button class="lightbox-nav prev" aria-label="Précédent">‹</button>
+        <button class="lightbox-nav next" aria-label="Suivant">›</button>
+        <img src="" alt="">
+        <div class="lb-meta">
+          <div class="lb-title"></div>
+          <div class="lb-desc"></div>
+        </div>
+      </div>`;
+    document.body.appendChild(lb);
+
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb || e.target.closest(".lightbox-close")) closeLightbox();
+      if (e.target.closest(".prev")) stepLightbox(-1);
+      if (e.target.closest(".next")) stepLightbox(1);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("show")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") stepLightbox(-1);
+      if (e.key === "ArrowRight") stepLightbox(1);
     });
   }
-  /***********************************/
-  /*          Contact Form           */
-  /***********************************/
-  $(function() {
-    // USE STRICT
-    "use strict";
-  	var form = $('#contact-form');
-  	var formMessages = $('#form-messages');
-  	$(form).submit(function(e) {
-  		e.preventDefault();
-  		var formData = $(form).serialize();
-  		$.ajax({
-  			type: 'POST',
-  			url: $(form).attr('action'),
-  			data: formData
-  		})
-  		.done(function(response) {
-  			$(formMessages).removeClass('error');
-  			$(formMessages).addClass('success');
-  			$(formMessages).text(response);
-  			$('#name').val('');
-  			$('#email').val('');
-  			$('#message').val('');
-  		})
-  		.fail(function(data) {
-  			$(formMessages).removeClass('success');
-  			$(formMessages).addClass('error');
-  			if (data.responseText !== '') {
-  				$(formMessages).text(data.responseText);
-  			} else {
-  				$(formMessages).text('Oops! An error occured and your message could not be sent.');
-  			}
-  		});
-  	});
-  });
-});
-/***********************************/
-/*    Shrink Navbar After Scroll   */
-/***********************************/
-$(window).scroll(function() {
-  // USE STRICT
-  "use strict";
-  if ($(document).scrollTop() > 70) {
-    $('.navbar-default').addClass('shrink');
-  } else {
-    $('.navbar-default').removeClass('shrink');
-  }
-});
+  updateLightbox(lb);
+  lb.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
 
-/***********************************/
-/*   Récupération des pages WordPress via l'API REST  */
-/***********************************/
-// Récupération des pages WordPress via l'API REST
-fetch('https://marcwilliame.be/wp-json/wp/v2/pages')
-  .then(response => response.json())
-  .then(data => {
-    // Sélectionne un conteneur sur ton site pour afficher le contenu
-    const container = document.getElementById('content'); // Ajoute un conteneur avec l'id "content" dans ton HTML
+function updateLightbox(lb) {
+  const w = WORKS[lbIndex];
+  lb.querySelector("img").src = w.file;
+  lb.querySelector("img").alt = w.title;
+  lb.querySelector(".lb-title").textContent =
+    `${w.title} — ${CATEGORIES[w.category] || w.category}${w.year ? ` (${w.year})` : ""}`;
+  lb.querySelector(".lb-desc").textContent =
+    w.desc +
+    (w.medium ? ` Technique : ${w.medium}.` : "") +
+    (w.forSale ? ` Disponible${w.price ? " — " + w.price : ""}.` : "");
+}
 
-    // Parcourt les pages récupérées depuis WordPress
-    data.forEach(page => {
-      const pageDiv = document.createElement('div');
-      pageDiv.innerHTML = `
-        <h2>${page.title.rendered}</h2>
-        <div>${page.content.rendered}</div>
-      `;
-      container.appendChild(pageDiv);
-    });
-  })
-  .catch(error => {
-    console.error('Erreur lors de la récupération des pages WordPress :', error);
-  });
+function stepLightbox(dir) {
+  lbIndex = (lbIndex + dir + WORKS.length) % WORKS.length;
+  updateLightbox(document.querySelector(".lightbox"));
+}
 
+function closeLightbox() {
+  document.querySelector(".lightbox").classList.remove("show");
+  document.body.style.overflow = "";
+}
