@@ -7,11 +7,11 @@ const SITE_CONFIG = {
   // --- Commandes ---
   // true  = les commandes sont ouvertes (bandeau jaune)
   // false = les commandes sont fermées (bandeau noir)
-  commandesOuvertes: true,
+  commandesOuvertes: false,
 
   // Texte affiché quand les commandes sont ouvertes / fermées
-  texteOuvert: "Les commandes sont ouvertes — quelques places disponibles ce mois-ci.",
-  texteFerme: "Les commandes sont momentanément fermées — prochaine ouverture bientôt.",
+  texteOuvert: "Les demandes de caricature sont étudiées selon les disponibilités.",
+  texteFerme: "Les commandes personnalisées sont actuellement étudiées au cas par cas : contactez-nous pour présenter votre projet.",
 
   // --- Contact ---
   email: "contact@caricart.be",

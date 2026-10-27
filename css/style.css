@@ -697,3 +697,35 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
 }
+
+
+/* Caric'Art — identité de galerie éditoriale, octobre 2026 */
+:root{--paper:#faf9f6;--paper-dark:#f1f0ec;--ink:#1e282c;--ink-soft:#526066;--yellow:#dbe7e3;--red:#477f78;--blue:#315e65;--radius:4px;--shadow:0 16px 48px rgba(26,41,44,.08);--font-display:"Manrope",sans-serif;--font-body:"DM Sans",sans-serif;--font-hand:"DM Sans",sans-serif}
+body{font-size:16px;line-height:1.75}
+h1,h2,h3{font-weight:700;letter-spacing:-.045em}
+h2{line-height:1.18}
+.site-header{border-bottom:1px solid #e0e3e0;background:rgba(250,249,246,.97)}
+.site-header .container{height:82px}
+.logo{font-size:1.65rem;letter-spacing:-.065em;font-weight:800}.logo .dot{width:7px;height:7px}.logo em{color:var(--red)}
+.main-nav a{font-size:.77rem;letter-spacing:.045em;text-transform:none;font-weight:600}.main-nav ul{gap:22px}
+.main-nav a.active::after{height:1px;border-radius:0}.nav-cta{border-radius:3px;padding:10px 15px}
+.hero{background:var(--paper);border-bottom:1px solid #e4e7e2}.hero .container{grid-template-columns:.92fr 1.08fr;gap:64px;padding-top:88px;padding-bottom:88px}
+.hero-kicker,.section-head .kicker,.page-hero .kicker,.kicker{font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);transform:none}
+.hero h1{font-size:clamp(2.7rem,5vw,5.1rem);line-height:1.08;margin:18px 0 25px;letter-spacing:-.07em}.hero h1 .accent{color:var(--ink)}
+.hero p{font-size:1.03rem;line-height:1.85}.hero-art{gap:13px}.hero-art img{border:0;border-radius:2px;box-shadow:none;transform:none!important;aspect-ratio:4/5;object-fit:cover;filter:none}
+.hero-bg{display:none}.hero-stats{display:none}
+.btn{border:1px solid var(--ink);border-radius:3px;padding:13px 23px;font-size:.85rem;font-weight:700;box-shadow:none!important;transition:background .2s,color .2s,transform .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--ink);color:white}.btn-primary:hover{background:var(--red);border-color:var(--red);color:white}.btn-dark{background:transparent;color:var(--ink)}.btn-outline{background:transparent}
+.section{padding:90px 0}.section-head{text-align:left;max-width:800px;margin:0 0 43px}.section-head h2{font-size:clamp(2rem,3.7vw,3.3rem);letter-spacing:-.055em}.section-head p{max-width:66ch}.section-alt{background:var(--paper-dark)}
+.marquee{background:var(--paper);border-bottom:1px solid #e6e7e2;padding:12px 0}.marquee-track{animation:none!important;gap:8px}.marquee-track img{border:0;border-radius:0;width:75px;height:80px;opacity:.75;transform:none!important}
+.work-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:30px 22px}.work-card{border:0;border-radius:0;background:transparent}.work-card:hover{box-shadow:none;transform:translateY(-2px)}.work-card img{aspect-ratio:4/5;object-fit:contain;background:#eceae5}.work-card .work-meta{border:0;padding:16px 2px}.work-card .work-title{font-weight:700}.work-card .work-badge{border:0;border-radius:2px;background:#e2eee8;font-weight:600}
+.cat-tile{border-radius:3px!important;box-shadow:none!important}.cat-img{border-radius:2px!important}
+.card{border:1px solid #d9dfdb;border-radius:3px;padding:30px;background:#fff}.card:hover{box-shadow:var(--shadow);transform:none}.step-num{background:var(--paper-dark)!important;border-radius:3px!important}
+.cta-band{border-radius:3px!important;box-shadow:none!important}.hand{font-family:var(--font-body);font-weight:700;letter-spacing:.03em;text-transform:uppercase;font-size:.72rem;color:var(--red)}
+.filter-btn{border:1px solid #bdc8c2;border-radius:3px;font-size:.82rem}.filter-btn.active{background:var(--ink)}.lightbox-inner{border:0;border-radius:3px}.lightbox-inner img{border-radius:2px}.lightbox-close,.lightbox-nav{border:1px solid #abbab3;border-radius:3px;background:white}
+.status-banner{font-size:.76rem;font-weight:500;letter-spacing:.02em}.status-banner.open{background:#e6eee9}.status-banner.closed{background:#263538}
+.section-ink{background:#243439}.site-footer{background:#1e2d32!important}
+.exhibitions-feature{background:#eaece7}.exhibitions-layout{display:grid;grid-template-columns:1fr .75fr;align-items:center;gap:65px}.exhibitions-layout h2{font-size:clamp(2rem,3vw,3rem);margin:14px 0}.exhibitions-layout p{color:var(--ink-soft);max-width:56ch;margin-bottom:22px}.exhibitions-layout figure{max-height:360px;overflow:hidden}.exhibitions-layout img{width:100%;height:360px;object-fit:contain}
+.partner-note{border-top:1px solid #dbe2dd;margin-top:24px;padding-top:20px;font-size:.84rem;color:var(--ink-soft)}.partner-note a{font-weight:700}
+:focus-visible{outline:3px solid #477f78;outline-offset:4px}
+@media(max-width:900px){.hero .container{grid-template-columns:1fr;gap:38px}.exhibitions-layout{grid-template-columns:1fr;gap:25px}.exhibitions-layout img{height:280px}.main-nav ul{gap:12px}.main-nav a{font-size:.72rem}}
+@media(max-width:680px){.site-header .container{height:72px}.main-nav{inset:72px 0 auto 0}.main-nav ul{gap:14px}.hero .container{padding:54px 24px}.hero-art{max-width:100%}.hero h1{font-size:clamp(2.45rem,9vw,3.5rem)}.section{padding:56px 0}.section-head{margin-bottom:30px}.marquee{display:none}.work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.work-card .work-meta{padding:10px 0}.work-card .work-title{font-size:.86rem}.exhibitions-layout img{height:240px}}
