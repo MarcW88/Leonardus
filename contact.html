@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/services.css">
 </head>
 <body>
 
@@ -33,68 +34,15 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="container">
-      <span class="kicker">Parlons de votre projet</span>
-      <h1>Contact</h1>
-      <p>
-        Une commande en tête, une question sur une œuvre, ou envie d'être prévenu des
-        prochaines ouvertures ? Ce formulaire est fait pour ça.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container" style="display:grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: start;">
-
-      <form class="form-card" id="contact-form">
-        <label for="name">Votre nom</label>
-        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-
-        <label for="email">Votre e-mail</label>
-        <input type="email" id="email" name="email" required placeholder="jean@exemple.fr">
-
-        <label for="subject">Objet de la demande</label>
-        <select id="subject" name="subject" required>
-          <option value="">— Choisir —</option>
-          <option value="Commande de caricature">Commande de caricature</option>
-          <option value="Question sur une œuvre / achat">Question sur une œuvre / achat</option>
-          <option value="Être prévenu des ouvertures">Être prévenu des ouvertures</option>
-          <option value="Presse / collaboration">Presse / collaboration</option>
-          <option value="Autre">Autre</option>
-        </select>
-
-        <label for="message">Votre message</label>
-        <textarea id="message" name="message" required placeholder="Décrivez votre projet : qui caricaturer, pour quelle occasion, pour quelle date..."></textarea>
-
-        <button type="submit" class="btn btn-primary">Envoyer le message</button>
-        <p class="note mt-40" style="margin-top:16px;">
-          Ce formulaire ouvre votre logiciel e-mail avec le message pré-rempli.
-          Vous pouvez aussi écrire directement à
-          <a href="mailto:contact@caricart.be">contact@caricart.be</a>.
-        </p>
-      </form>
-
-      <div>
-        <div class="card">
-          <h3>✉️ En direct</h3>
-          <p>Par e-mail : <a href="mailto:contact@caricart.be">contact@caricart.be</a><br>
-          Réponse en général sous 48 h.</p>
-        </div>
-        <div class="card mt-40" style="margin-top:24px;">
-          <h3>📸 Sur les réseaux</h3>
-          <p>Suivez l'atelier et les nouvelles caricatures sur
-            <a href="https://instagram.com/caricart" target="_blank" rel="noopener">Instagram</a>.</p>
-        </div>
-        <div class="card mt-40" style="margin-top:24px;">
-          <h3>💡 Bon à savoir</h3>
-          <p>Pour une commande, pensez à indiquer : le nombre de personnes à caricaturer,
-          l'occasion, et la date souhaitée de livraison.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  <main class="service-page contact-page"><section class="service-hero contact-hero"><div class="service-wrap"><span class="service-label">Contact</span><h1>Parlons de<br><em>votre projet.</em></h1><p>Une idée de caricature, une question sur une œuvre ou une proposition d'exposition ? Écrivez-nous.</p></div></section>
+    <section class="service-section"><div class="service-wrap contact-layout"><form class="contact-form" id="contact-form"><h2>Votre message</h2><p>Les projets sont examinés selon les disponibilités. Une demande ne vaut pas acceptation.</p>
+      <label for="name">Votre nom</label><input id="name" name="name" autocomplete="name" required>
+      <label for="email">Votre adresse e-mail</label><input type="email" id="email" name="email" autocomplete="email" required>
+      <label for="subject">Objet de votre demande</label><select id="subject" name="subject" required><option value="">Choisir un objet</option><option>Commande de caricature</option><option>Question sur une œuvre</option><option>Exposition ou événement</option><option>Collaboration</option><option>Autre</option></select>
+      <label for="message">Votre message</label><textarea id="message" name="message" rows="7" required placeholder="Décrivez votre idée, le nombre de personnes et la date souhaitée si elle est importante."></textarea>
+      <button class="service-button" type="submit">Préparer mon e-mail ↗</button><p class="contact-help">Ce bouton ouvre votre application e-mail avec un message prérempli : vous pourrez le relire et l'envoyer. Vous pouvez aussi écrire directement à <a href="mailto:contact@caricart.be">contact@caricart.be</a>.</p>
+    </form><aside class="contact-aside"><span class="service-label">Pour bien commencer</span><h2>Quelques détails utiles.</h2><p>Pour une demande de portrait, précisez l'occasion, le nombre de personnes et votre date souhaitée. Nous vous indiquerons ensuite quelles photos partager si le projet peut être étudié.</p><div class="contact-direct"><span class="service-label">Nous écrire directement</span><p><a href="mailto:contact@caricart.be">contact@caricart.be</a></p></div></aside></div></section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
@@ -146,18 +94,13 @@
   <script src="js/works.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Site statique : le formulaire génère un e-mail pré-rempli (mailto:)
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const f = e.target;
-      const body =
-        `Nom : ${f.name.value}\n` +
-        `E-mail : ${f.email.value}\n\n` +
-        f.message.value;
-      location.href =
-        "mailto:" + SITE_CONFIG.email +
-        "?subject=" + encodeURIComponent("[Caric'Art] " + f.subject.value) +
-        "&body=" + encodeURIComponent(body);
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const fields = event.currentTarget.elements;
+      const body = `Nom : ${fields.namedItem("name").value}\nE-mail : ${fields.namedItem("email").value}\n\n${fields.namedItem("message").value}`;
+      const link = document.createElement("a");
+      link.href = "mailto:" + SITE_CONFIG.email + "?subject=" + encodeURIComponent("[Caric'Art] " + fields.namedItem("subject").value) + "&body=" + encodeURIComponent(body);
+      link.click();
     });
   </script>
 </body>
