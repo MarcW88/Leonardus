@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.marcwilliame.be/</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/galerie.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/commandes.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/boutique.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/a-propos.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/contact.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/mentions-legales.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/dessin-humoristique.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/portrait-dessine.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-artiste.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-chanteurs.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-acteurs.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-ecrivains.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-sportifs.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.marcwilliame.be/caricature-personnalites.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/galerie.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/commandes.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/boutique.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/a-propos.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/contact.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/mentions-legales.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/dessin-humoristique.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/portrait-dessine.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-artiste.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-chanteurs.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-acteurs.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-ecrivains.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-sportifs.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/caricature-personnalites.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://caricart.be/expositions.html</loc></url>
+  <url><loc>https://caricart.be/rejoindre-caricart.html</loc></url>
 </urlset>
