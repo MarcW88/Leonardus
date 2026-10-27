@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/accueil.css">
 </head>
 <body>
 
@@ -34,161 +35,31 @@
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div>
-        <span class="hero-kicker">Galerie de caricatures · Belgique</span>
-        <h1>La caricature,<br>un autre <span class="accent">regard sur les visages.</span></h1>
-        <p>
-          Explorez une galerie de portraits et de caricatures originales, entre expression, observation et humour. Les commandes personnalisées sont étudiées ponctuellement, selon les disponibilités.
-        </p>
-        <div class="hero-actions">
-          <a href="galerie.html" class="btn btn-primary">Voir la galerie</a>
-          <a href="commandes.html" class="btn btn-dark">Commander une caricature</a>
+  <main class="home-editorial">
+    <section class="home-hero">
+      <div class="home-wrap home-hero-layout">
+        <div class="home-intro">
+          <span class="home-label">Caric'Art · Galerie de caricatures</span>
+          <h1>Un autre regard<br>sur les <em>visages.</em></h1>
+          <p>Des portraits qui saisissent une expression, un caractère, une histoire. Explorez l'univers de la caricature à travers une collection originale.</p>
+          <div class="home-actions"><a class="home-button" href="galerie.html">Découvrir la galerie <span aria-hidden="true">↗</span></a><a class="home-text-link" href="commandes.html">Un portrait sur mesure <span aria-hidden="true">↗</span></a></div>
         </div>
-        
-      <div class="hero-art">
-        <img src="images/works/real/IMG_1471.jpeg" alt="Caricature — l'homme au chapeau" data-work-index="0">
-        <img src="images/works/real/IMG_1669.jpeg" alt="Caricature — sourire aux lunettes" data-work-index="1">
-        <img src="images/works/real/IMG_1627.jpeg" alt="Caricature — duo complice" data-work-index="2">
-        <img src="images/works/real/IMG_1651.jpeg" alt="Caricature — la cow-girl" data-work-index="3">
+        <figure class="home-hero-art"><img src="images/works/real/IMG_1485.jpeg" alt="Le rocker aux lunettes, caricature de musicien" fetchpriority="high"><figcaption><span>À la une</span><span>Le rocker aux lunettes</span></figcaption></figure>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ BANDE DÉFILANTE ============ -->
-  <div class="marquee" aria-label="Aperçu des œuvres">
-    <div class="marquee-track" data-marquee></div>
-  </div>
-
-  <!-- ============ CATÉGORIES ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker">Tout le monde y passe</span>
-        <h2>Un univers de célébrités</h2>
-        <p>Des plateaux de cinéma aux scènes de concert, des bibliothèques aux stades : aucune célébrité n'échappe au crayon.</p>
-      </div>
-      <div class="cat-strip">
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1679.jpeg" alt="Portraits de famille caricaturés">
-          Portraits & familles
-          <small>Commandes sur mesure</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1684.jpeg" alt="Caricature de cinéma">
-          Acteurs & cinéma
-          <small>Stars du grand écran</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1485.jpeg" alt="Caricature de chanteur">
-          Chanteurs & musiciens
-          <small>Voix légendaires</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1727.jpeg" alt="Caricature d'écrivain">
-          Écrivains & artistes
-          <small>Plumes et pinceaux</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1674.jpeg" alt="Caricature de sportif">
-          Sportifs
-          <small>Champions & légendes</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1651.jpeg" alt="Personnage illustré">
-          Personnages
-          <small>Illustrations & scènes</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1755.jpeg" alt="Croquis au crayon">
-          Croquis & études
-          <small>Les coulisses du trait</small>
-        </a>
-        <a class="cat-tile" href="galerie.html">
-          <img class="cat-img" src="images/works/real/IMG_1697.jpeg" alt="Caricature de personnalité">
-          Personnalités
-          <small>Télé, humour & médias</small>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SÉLECTION ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker">Dernières œuvres</span>
-        <h2>La sélection du moment</h2>
-        <p>Un aperçu des caricatures récentes. Certaines œuvres originales sont disponibles à la vente dans la boutique.</p>
-      </div>
-      <div class="work-grid" data-featured></div>
-      <div class="text-center mt-40">
-        <a href="galerie.html" class="btn btn-outline">Explorer toute la galerie</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ LE PROCÉDÉ ============ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker">Comment je travaille</span>
-        <h2>De la photo à la caricature</h2>
-      </div>
-      <div class="card-grid">
-        <div class="card">
-          <span class="step-num">1</span>
-          <h3>L'observation</h3>
-          <p>Chaque visage a un trait signature : une mèche, un sourire, un regard. C'est ce détail qui fait toute la caricature.</p>
-        </div>
-        <div class="card">
-          <span class="step-num">2</span>
-          <h3>L'exagération</h3>
-          <p>Le trait s'affûte, les proportions dansent. Le but : rester ressemblant tout en poussant l'humour au maximum.</p>
-        </div>
-        <div class="card">
-          <span class="step-num">3</span>
-          <h3>La couleur</h3>
-          <p>Encre, aquarelle ou travail numérique : chaque œuvre est finalisée selon le style et l'usage souhaité.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ COMMANDES CTA ============ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="cta-band">
-        <span class="hand">Envie d'être caricaturé ?</span>
-        <h2>Une caricature sur commande, selon les disponibilités</h2>
-        <p>
-          Les demandes de portraits et de caricatures sur mesure sont examinées au cas par cas. La réalisation dépend du calendrier artistique et d'une confirmation préalable.
-        </p>
-        <a href="commandes.html" class="btn btn-dark">Découvrir les modalités</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TÉMOIGNAGES ============ -->
-  
-
-  <section class="section exhibitions-feature"><div class="container"><div class="exhibitions-layout"><div><span class="kicker">Rencontres & expositions</span><h2>Retrouver Caric'Art ailleurs que sur écran.</h2><p>Les expositions et événements sont l'occasion de découvrir les caricatures autrement. Retrouvez ici les rendez-vous confirmés et les archives, au fil des participations.</p><a href="expositions.html" class="btn btn-outline">Voir les expositions</a></div><figure><img src="images/works/real/IMG_1471.jpeg" loading="lazy" alt="Une œuvre de la galerie Caric'Art"></figure></div></div></section>
-<!-- ============ BOUTIQUE TEASER ============ -->
-  <section class="section section-ink">
-    <div class="container">
-      <div class="section-head">
-        <span class="kicker">Prochainement</span>
-        <h2>Œuvres et éditions</h2>
-        <p>Découvrez les œuvres et les possibilités d'acquisition lorsqu'elles sont proposées. La boutique n'est pas encore ouverte.</p>
-      </div>
-      <div class="text-center">
-        <a href="boutique.html" class="btn btn-primary">Découvrir la boutique</a>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section class="home-section home-selection"><div class="home-wrap">
+      <div class="home-heading"><div><span class="home-label">Dans la galerie</span><h2>Des visages,<br><em>des histoires.</em></h2></div><p>Un trait, une expression, parfois un détail inattendu : chaque portrait propose une nouvelle façon de regarder.</p></div>
+      <div class="home-art-grid">
+        <figure class="home-art-large"><img src="images/works/real/IMG_1471.jpeg" alt="L'homme au chapeau de paille, portrait caricatural" loading="lazy"><figcaption>L'homme au chapeau de paille <span>Portrait</span></figcaption></figure>
+        <figure><img src="images/works/real/IMG_1684.jpeg" alt="L'icône du septième art, caricature inspirée du cinéma" loading="lazy"><figcaption>L'icône du septième art <span>Cinéma</span></figcaption></figure>
+        <figure><img src="images/works/real/IMG_1674.jpeg" alt="Le sportif en jaune et bleu, caricature sportive" loading="lazy"><figcaption>Le sportif en jaune et bleu <span>Sport</span></figcaption></figure>
+      </div><a class="home-inline-link" href="galerie.html">Explorer toutes les œuvres <span aria-hidden="true">↗</span></a>
+    </div></section>
+    <section class="home-section home-worlds"><div class="home-wrap home-worlds-layout"><div><span class="home-label">Explorer</span><h2>À chaque univers,<br><em>son regard.</em></h2><p>Du cinéma à la musique, de la littérature au sport : découvrez les portraits par thème.</p></div><div class="home-world-list"><a href="caricature-acteurs.html">Acteurs & cinéma <span>↗</span></a><a href="caricature-chanteurs.html">Chanteurs & musiciens <span>↗</span></a><a href="caricature-ecrivains.html">Écrivains <span>↗</span></a><a href="caricature-sportifs.html">Sportifs <span>↗</span></a><a href="caricature-personnalites.html">Personnalités <span>↗</span></a><a href="galerie.html">Tous les univers <span>↗</span></a></div></div></section>
+    <section class="home-section home-commissions"><div class="home-wrap home-split"><figure><img src="images/works/real/IMG_1679.jpeg" alt="Un demi-siècle d'amour, portrait caricatural d'un couple" loading="lazy"></figure><div><span class="home-label">Un projet personnel</span><h2>Votre histoire,<br><em>en caricature.</em></h2><p>Un portrait à partir de photos, un cadeau ou une idée particulière ? Présentez votre projet à Marc Williame, caricaturiste à l'origine de Caric'Art.</p><p>Chaque demande est examinée individuellement selon les disponibilités. Sa réalisation est toujours soumise à confirmation.</p><a class="home-button" href="commandes.html">Découvrir les commandes <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="home-section home-news"><div class="home-wrap home-split"><div><span class="home-label">Expositions & rencontres</span><h2>Le dessin se découvre<br><em>aussi en vrai.</em></h2><p>Les prochaines participations confirmées seront annoncées ici. Pour proposer une exposition ou une rencontre, contactez Caric'Art.</p><a class="home-inline-link" href="expositions.html">Voir les expositions <span aria-hidden="true">↗</span></a></div><figure><img src="images/works/real/IMG_1651.jpeg" alt="La cow-girl, illustration de la galerie Caric'Art" loading="lazy"></figure></div></section>
+    <section class="home-about"><div class="home-wrap"><span class="home-label">À propos</span><h2>Le plaisir de regarder<br><em>autrement.</em></h2><p>Caric'Art est un projet artistique né du regard de Marc Williame sur les visages et les personnalités. Une galerie où l'observation rencontre l'humour, le dessin et la couleur.</p><a class="home-inline-link" href="a-propos.html">Découvrir Caric'Art <span aria-hidden="true">↗</span></a></div></section>
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
