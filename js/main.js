@@ -27,7 +27,7 @@ function initStatusBanner() {
   el.className = "status-banner " + (open ? "open" : "closed");
   el.innerHTML = open
     ? `${SITE_CONFIG.texteOuvert} <a href="commandes.html">Commander une caricature →</a>`
-    : `${SITE_CONFIG.texteFerme} <a href="contact.html">Être prévenu →</a>`;
+    : `${SITE_CONFIG.texteFerme} <a href="contact.html">Présenter un projet →</a>`;
 }
 
 /* ---------- Menu mobile ---------- */
@@ -38,11 +38,13 @@ function initMobileNav() {
   burger.addEventListener("click", () => {
     burger.classList.toggle("open");
     nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(nav.classList.contains("open")));
   });
   nav.querySelectorAll("a").forEach((a) =>
     a.addEventListener("click", () => {
       burger.classList.remove("open");
       nav.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
     })
   );
 }

@@ -10,14 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="canonical" href="https://caricart.be/mentions-legales.html">
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
       <a class="logo" href="index.html"><span class="dot"></span>Caric'<em>Art</em></a>
-      <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
-      <nav class="main-nav">
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation-principale"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="navigation-principale" aria-label="Navigation principale">
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="galerie.html">Galerie</a></li>
@@ -78,51 +79,7 @@
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a class="logo" href="index.html">Caric'<em>Art</em></a>
-          <p>Caricatures de célébrités & portraits sur commande — un projet de Marc Williame, caricaturiste belge.</p>
-        </div>
-        <div>
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="commandes.html">Commandes</a></li>
-            <li><a href="boutique.html">Boutique</a></li>
-          <li><a href="expositions.html">Expositions</a></li>
-            <li><a href="a-propos.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Thèmes</h4>
-          <ul>
-            <li><a href="dessin-humoristique.html">Dessin humoristique</a></li>
-            <li><a href="portrait-dessine.html">Portrait dessiné</a></li>
-            <li><a href="caricature-artiste.html">Caricature d'artiste</a></li>
-            <li><a href="caricature-chanteurs.html">Caricature de chanteur</a></li>
-            <li><a href="caricature-acteurs.html">Caricature d'acteur</a></li>
-            <li><a href="caricature-ecrivains.html">Caricature d'écrivain</a></li>
-            <li><a href="caricature-sportifs.html">Caricature de sportif</a></li>
-            <li><a href="caricature-personnalites.html">Caricature de personnalité</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Suivre Caric'Art</h4>
-          <ul>
-            <li><a href="https://instagram.com/caricart" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="mailto:contact@caricart.be">contact@caricart.be</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year></span> Caric'Art · Marc Williame — Tous droits réservés. Les œuvres sont des caricatures artistiques.</span>
-        <a href="expositions.html">Expositions</a> · <a href="rejoindre-caricart.html">Caricaturistes partenaires</a> · <a href="mentions-legales.html">Mentions légales</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div><a class="logo" href="index.html">Caric'<em>Art</em></a><p>Une galerie de caricatures et de portraits, créée par Marc Williame en Belgique.</p></div><div><h4>Découvrir</h4><ul><li><a href="galerie.html">Galerie</a></li><li><a href="commandes.html">Commandes</a></li><li><a href="expositions.html">Expositions</a></li><li><a href="boutique.html">Boutique</a></li></ul></div><div><h4>Univers</h4><ul><li><a href="caricature-acteurs.html">Acteurs et cinéma</a></li><li><a href="caricature-chanteurs.html">Chanteurs et musiciens</a></li><li><a href="caricature-ecrivains.html">Écrivains</a></li><li><a href="caricature-sportifs.html">Sportifs</a></li><li><a href="caricature-personnalites.html">Personnalités</a></li><li><a href="portrait-dessine.html">Portrait dessiné</a></li><li><a href="dessin-humoristique.html">Dessin humoristique</a></li><li><a href="caricature-artiste.html">Caricature d'artiste</a></li></ul></div><div><h4>Caric'Art</h4><ul><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:contact@caricart.be">contact@caricart.be</a></li><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="rejoindre-caricart.html">Pour les caricaturistes</a></li></ul></div></div><div class="footer-bottom"><span>© <span data-year></span> Caric'Art · Marc Williame</span><span>Caricatures et portraits en Belgique</span></div></div></footer>
 
   <script src="js/config.js"></script>
   <script src="js/works.js"></script>
