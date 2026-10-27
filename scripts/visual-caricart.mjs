@@ -19,7 +19,8 @@ if (!process.env.VISUAL_BASE_URL) {
 }
 const report={createdAt:new Date().toISOString(),base,routes,viewports,pages:[]};
 try {
- browser=await chromium.launch({headless:true});
+ const executablePath=process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH;
+ browser=await chromium.launch({headless:true,...(executablePath ? {executablePath,args:['--no-sandbox','--disable-dev-shm-usage']} : {})});
  for(const v of viewports){
   const context=await browser.newContext({viewport:{width:v.width,height:v.height},reducedMotion:'reduce'});
   for(const route of routes){
