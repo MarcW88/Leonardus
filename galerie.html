@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/galerie.css">
 </head>
 <body>
 
@@ -33,28 +34,15 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="container">
-      <span class="kicker">La collection complète</span>
-      <h1>La galerie</h1>
-      <p>
-        Toutes les caricatures, toutes les célébrités : du cinéma à la chanson, de la
-        littérature au sport. Cliquez sur une œuvre pour la voir en grand.
-      </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="filters" data-filters></div>
+  <main class="gallery-page">
+    <header class="gallery-intro"><div class="gallery-wrap"><span class="gallery-label">Caric'Art · La collection</span><h1>La galerie des <em>visages.</em></h1><p>Du cinéma à la musique, de la littérature aux portraits sur mesure : découvrez les caricatures et laissez-vous surprendre par chaque regard.</p></div></header>
+    <section class="gallery-collection"><div class="gallery-wrap">
+      <div class="gallery-toolbar"><div><span class="gallery-label">Explorer la collection</span><h2>Choisissez un univers</h2></div><p>Sélectionnez un thème ou ouvrez une œuvre pour la découvrir en grand.</p></div>
+      <div class="filters" data-filters aria-label="Filtrer les œuvres par univers"></div>
       <div class="work-grid" data-gallery="all"></div>
-      <p class="note text-center mt-40">
-        Les œuvres affichées « À vendre » seront prochainement disponibles dans la
-        <a href="boutique.html">boutique</a>. Une œuvre vous intéresse déjà ?
-        <a href="contact.html">Contactez-moi</a>.
-      </p>
-    </div>
-  </section>
+      <div class="gallery-contact"><div><span class="gallery-label">Un projet en tête ?</span><h2>Un portrait qui vous ressemble.</h2><p>Les demandes personnalisées sont étudiées individuellement selon les disponibilités.</p></div><a href="commandes.html">Découvrir les commandes <span aria-hidden="true">↗</span></a></div>
+    </div></section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
