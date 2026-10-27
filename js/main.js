@@ -103,6 +103,17 @@ function initGallery(container) {
     items = items.filter((w) => w.category === mode);
   }
 
+  // Les pages thématiques présentent déjà une œuvre dans leur introduction.
+  // Ne pas la répéter immédiatement dans leur sélection.
+  const heroImage = document.querySelector(".theme-page .theme-hero-art img")?.getAttribute("src");
+  if (heroImage && items.some((work) => work.file === heroImage)) {
+    items = items.filter((work) => work.file !== heroImage);
+    if (!items.length) {
+      container.innerHTML = '<p class="note">Découvrez d’autres œuvres dans <a href="galerie.html">la galerie complète</a>.</p>';
+      return;
+    }
+  }
+
   const filterBar = document.querySelector("[data-filters]");
   if (filterBar && mode === "all") {
     const cats = [...new Set(items.map((w) => w.category))];
