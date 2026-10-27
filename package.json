@@ -1,0 +1,11 @@
+{
+  "name": "bloc-notes-numerique-visual-review",
+  "private": true,
+  "scripts": {
+    "visual:install": "playwright install chromium",
+    "visual:caricart": "node scripts/visual-caricart.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

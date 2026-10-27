@@ -1,0 +1,30 @@
+name: CaricArt visual review
+on:
+  workflow_dispatch:
+  push:
+    branches: [caricart-visual-review]
+    paths: ['scripts/visual-caricart.mjs', 'package.json', 'package-lock.json', '.github/workflows/caricart-visual-review.yml']
+  pull_request:
+    paths: ['*.html', 'css/**', 'js/**', 'scripts/visual-caricart.mjs', 'package.json', 'package-lock.json', '.github/workflows/caricart-visual-review.yml']
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run visual:caricart
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: caricart-visual-review
+          path: .artifacts/design-review/caricart/
+          if-no-files-found: warn
+          retention-days: 14
