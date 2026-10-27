@@ -2,8 +2,8 @@ name: CaricArt visual review
 on:
   workflow_dispatch:
   push:
-    branches: [caricart-visual-review]
-    paths: ['scripts/visual-caricart.mjs', 'package.json', 'package-lock.json', '.github/workflows/caricart-visual-review.yml']
+    branches: [main, caricart-visual-review]
+    paths: ['*.html', 'css/**', 'js/**', 'scripts/visual-caricart.mjs', 'package.json', 'package-lock.json', '.github/workflows/caricart-visual-review.yml']
   pull_request:
     paths: ['*.html', 'css/**', 'js/**', 'scripts/visual-caricart.mjs', 'package.json', 'package-lock.json', '.github/workflows/caricart-visual-review.yml']
 permissions:
