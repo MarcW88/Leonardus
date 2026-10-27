@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/themes.css">
 </head>
-<body>
+<body class="theme-page">
 
   <div id="status-banner"></div>
 
@@ -33,11 +34,13 @@
     </div>
   </header>
 
+  <main>
   <section class="page-hero">
     <div class="container">
       <span class="kicker">À partir de vos photos</span>
       <h1>Portrait dessiné sur photo</h1>
       <p>Faire réaliser un portrait dessiné à partir d'une photo, c'est transformer un souvenir en œuvre unique. Marc Williame, caricaturiste belge, propose des portraits personnalisés : couple, famille, enfant, animal de compagnie, et même portraits fusain en noir et blanc.</p>
+      <figure class="theme-hero-art"><img src="images/works/real/IMG_1679.jpeg" alt="Un demi-siècle d’amour" fetchpriority="high"><figcaption>Un demi-siècle d’amour</figcaption></figure>
     </div>
   </section>
 
@@ -45,7 +48,7 @@
     <div class="container" style="max-width: 820px;">
             <h2 style="margin-top:44px; font-size:1.7rem;">Comment commander un portrait dessiné ?</h2>
 
-              <p>Laissez passer la commande en trois étapes : vous envoyez 2 à 3 photos nettes, Marc réalise l'esquisse, vous validez, puis la version finale est livrée en fichier haute définition ou en original sur papier.</p>
+              <p>Présentez votre projet et préparez quelques photos nettes. Les modalités, le format et les délais sont discutés au cas par cas, selon les disponibilités et après confirmation.</p>
             
       <h2 style="margin-top:44px; font-size:1.7rem;">Portrait de couple, de famille ou solo ?</h2>
 
@@ -69,10 +72,12 @@
         <span class="kicker">Sélection d'œuvres</span>
         <h2>Des caricatures en lien avec ce thème</h2>
       </div>
-      <div class="work-grid" data-gallery="all"></div>
+      <div class="work-grid" data-gallery="portraits"></div>
+      <p class="theme-more"><a href="galerie.html">Explorer toute la galerie ↗</a></p>
     </div>
   </section>
 
+  </main>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid" >
